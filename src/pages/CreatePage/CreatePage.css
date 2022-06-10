@@ -1,0 +1,17 @@
+.CreatePage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.PartsList {
+    grid-row: 1 / 3;
+}
+
+.LayerList {
+    grid-row: 1 / 3;
+}
+
+.ActionButtons {
+    grid-column-start: 2;
+}
