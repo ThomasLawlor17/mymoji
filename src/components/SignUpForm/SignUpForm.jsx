@@ -22,7 +22,9 @@ export default class SignUpForm extends Component {
     try {
       // Don't want to send confirm or error properties
       const { name, username, password } = this.state;
+      // Line where it fails (signUp function)
       const user = await signUp({ name, username, password });
+      // Doesn't hit this line
       this.props.setUser(user);
     } catch {
       this.setState({ error: 'Sign Up Failed - Try Again' });
