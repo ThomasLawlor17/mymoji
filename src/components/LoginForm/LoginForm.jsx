@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { login } from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
 
   function handleChange(evt) {
@@ -24,8 +24,8 @@ export default function LoginForm({ setUser }) {
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
         <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+          <label>Username</label>
+          <input type="text" name="username" value={credentials.username} onChange={handleChange} required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
           <button type="submit">LOG IN</button>

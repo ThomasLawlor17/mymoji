@@ -2,11 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const Part = require('./Part')
 
-
-
-
-
-
 const emojiSchema = new Schema({
     name: {
         type: String,
@@ -17,6 +12,10 @@ const emojiSchema = new Schema({
     shared: {
         type: Boolean,
         default: false,
+    },
+    downloads: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true,

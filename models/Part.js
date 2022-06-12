@@ -4,26 +4,23 @@ const Schema = mongoose.Schema
 const pathSchema = new Schema({
     d: String,
     fill: String,
-    g: {
-        type: Boolean,
-        default: false
-    },
-    clipPath: {
+    fillRule: {
         type: String,
         default: ''
     },
-    defs: {
-        type: Boolean,
-        default: false
-    },
-    id: {
+    clipRule: {
         type: String,
         default: ''
     },
-    fill2: {
-        type: String,
-        default: ''
-    }
+}, {
+    timestamps: true
+})
+
+const rectSchema = new Schema({
+    width: Number,
+    height: Number,
+    fill: String,
+    transform: String,
 }, {
     timestamps: true
 })
@@ -31,6 +28,11 @@ const pathSchema = new Schema({
 const partSchema = new Schema({
     name: String,
     paths: [pathSchema],
+    clipPath: {
+        type: Boolean,
+        default: false
+    },
+    rect: [rectSchema],
     category: {type: Schema.Types.ObjectId, ref: 'Category'},
 }, {
     timestamps: true

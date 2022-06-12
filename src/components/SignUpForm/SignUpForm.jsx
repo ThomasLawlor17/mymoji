@@ -4,7 +4,7 @@ import { signUp } from '../../utilities/users-service';
 export default class SignUpForm extends Component {
   state = {
     name: '',
-    email: '',
+    username: '',
     password: '',
     confirm: '',
     error: ''
@@ -21,8 +21,8 @@ export default class SignUpForm extends Component {
     evt.preventDefault();
     try {
       // Don't want to send confirm or error properties
-      const { name, email, password } = this.state;
-      const user = await signUp({ name, email, password });
+      const { name, username, password } = this.state;
+      const user = await signUp({ name, username, password });
       this.props.setUser(user);
     } catch {
       this.setState({ error: 'Sign Up Failed - Try Again' });
@@ -37,8 +37,8 @@ export default class SignUpForm extends Component {
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+            <label>Username</label>
+            <input type="text" name="username" value={this.state.username} onChange={this.handleChange} required />
             <label>Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <label>Confirm</label>
