@@ -3,16 +3,16 @@ const Schema = mongoose.Schema
 
 const partSchema = new Schema({
     name: String,
-    paths: {
+    paths: [{
         type: Schema.Types.ObjectId, ref: 'Path'
-    },
+    }],
     clipPath: {
         type: Boolean,
         default: false
     },
-    rect: {
+    rect: [{
         type: Schema.Types.ObjectId, ref: 'Rect'
-    },
+    }],
     category: {type: Schema.Types.ObjectId, ref: 'Category'},
 }, {
     timestamps: true

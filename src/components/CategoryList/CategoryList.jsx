@@ -4,7 +4,7 @@ import "./CategoryList.css";
 // Components
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
-	const cats = categories.map((cat) => (
+	const cats = categories.map((cat) => 
 		<li
 			key={cat}
 			className={cat === activeCat ? "active" : ""}
@@ -12,6 +12,6 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
 		>
 			{cat}
 		</li>
-	));
+	);
 	return <ul className="CategoryList">{cats}</ul>;
 }
