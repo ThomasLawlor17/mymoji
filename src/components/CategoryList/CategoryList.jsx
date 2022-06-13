@@ -1,18 +1,17 @@
 // css
-import './CategoryList.css'
-
+import "./CategoryList.css";
 
 // Components
-import CategoryListItem from "../CategoryListItem/CategoryListItem"
 
-export default function CategoryList() {
-  return (
-    <div className='CategoryList'>
-        <h1>Category List</h1>
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-    </div>
-  )
+export default function CategoryList({ categories, activeCat, setActiveCat }) {
+	const cats = categories.map((cat) => 
+		<li
+			key={cat}
+			className={cat === activeCat ? "active" : ""}
+			onClick={() => setActiveCat(cat)}
+		>
+			{cat}
+		</li>
+	);
+	return <ul className="CategoryList">{cats}</ul>;
 }

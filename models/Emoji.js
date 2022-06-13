@@ -1,13 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Part = require('./Part')
 
 const emojiSchema = new Schema({
     name: {
         type: String,
         maxlength: 40
     },
-    layers: [Part],
+    layers: { type: Schema.Types.ObjectId, ref: 'Part'},
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     shared: {
         type: Boolean,
@@ -20,6 +19,19 @@ const emojiSchema = new Schema({
 }, {
     timestamps: true,
 })
+
+
+
+
+
+emojiSchema.methods.addPartToLayers = async function (partId) {
+    const layer = this
+    const part = await mongoose.model('Part').findById(partId)
+    layer.layers.push({part})
+    return layer.save()
+}
+
+
 
 
 module.exports = mongoose.model('Emoji', emojiSchema)

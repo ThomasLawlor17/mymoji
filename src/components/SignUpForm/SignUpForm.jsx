@@ -1,9 +1,8 @@
 import { Component } from 'react';
-import { signUp } from '../../utilities/users-service';
+import { signup } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
   state = {
-    name: '',
     username: '',
     password: '',
     confirm: '',
@@ -21,9 +20,9 @@ export default class SignUpForm extends Component {
     evt.preventDefault();
     try {
       // Don't want to send confirm or error properties
-      const { name, username, password } = this.state;
-      // Line where it fails (signUp function)
-      const user = await signUp({ name, username, password });
+      const { username, password } = this.state;
+      // Line where it fails (signup function)
+      const user = await signup({ username, password });
       // Doesn't hit this line
       this.props.setUser(user);
     } catch {
@@ -37,8 +36,6 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Username</label>
             <input type="text" name="username" value={this.state.username} onChange={this.handleChange} required />
             <label>Password</label>

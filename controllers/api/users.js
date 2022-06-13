@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 module.exports = {
-  create,
+  signup,
   login
 };
 
-async function create(req, res) {
+async function signup(req, res) {
   try {
     const user = await User.create(req.body);
     const token = createJWT(user);

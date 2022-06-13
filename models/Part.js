@@ -1,38 +1,18 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const pathSchema = new Schema({
-    d: String,
-    fill: String,
-    fillRule: {
-        type: String,
-        default: ''
-    },
-    clipRule: {
-        type: String,
-        default: ''
-    },
-}, {
-    timestamps: true
-})
-
-const rectSchema = new Schema({
-    width: Number,
-    height: Number,
-    fill: String,
-    transform: String,
-}, {
-    timestamps: true
-})
-
 const partSchema = new Schema({
     name: String,
-    paths: [pathSchema],
+    paths: [{
+        type: Schema.Types.ObjectId, ref: 'Path'
+    }],
     clipPath: {
         type: Boolean,
         default: false
     },
-    rect: [rectSchema],
+    rect: [{
+        type: Schema.Types.ObjectId, ref: 'Rect'
+    }],
     category: {type: Schema.Types.ObjectId, ref: 'Category'},
 }, {
     timestamps: true

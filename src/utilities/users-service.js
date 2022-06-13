@@ -16,10 +16,9 @@ export async function login(credentials) {
   }
 }
 
-export async function signUp(userData) {
-  // Delegate the network request code to the users-api.js service module
+export async function signup(userData) {
   try {
-    const token = await usersAPI.signUp(userData);
+    const token = await usersAPI.signup(userData);
     localStorage.setItem('token', token);
     return getUser();
   } catch {
