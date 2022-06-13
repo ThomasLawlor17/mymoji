@@ -15,13 +15,15 @@ export default function App(props) {
 
   return (
     <main className="App">
+      { user ?
         <Routes>
           <Route path="/emojis/new">
-            <CreatePage user={user} setUser={setUser} />
+          <CreatePage user={user} setUser={setUser} />
           </Route>
         </Routes>
-        {/* <AuthPage setUser={setUser}/> */}
-
+        :
+        <AuthPage setUser={setUser}/>
+      }
     </main>
   );
 }
