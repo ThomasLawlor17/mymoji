@@ -20,14 +20,15 @@ export default function CreatePage(user, setUser) {
 	const [parts, setParts] = useState([])
     const [categories, setCategories] = useState([])
     const [activeCat, setActiveCat] = useState('')
-    const [layers, setLayers] = useState(null)
+    const [layers, setLayers] = useState([])
+    const [shared, setShared] = useState(false)
+    const [name, setName] = useState('')
+
+
 
     useEffect(() => {
-        console.log('useEffect was called')
         async function fetchParts() {
-            console.log('hello from fetchParts')
             const parts = await fetch('/api/parts').then(res => res.json())
-            console.log('PARTS: ', parts)
             setParts(parts)
 
             setCategories(parts.reduce((cats, part) => {
@@ -35,20 +36,25 @@ export default function CreatePage(user, setUser) {
                 return cats.includes(cat) ? cats : [...cats, cat]
             }, []))
             setActiveCat(parts[52].category.name)
-
         }
         fetchParts()
+        async function fetchLayers() {
+            const layers = await emojisAPI.getEmoji()
+            setLayers(layers)
+            console.log(layers)
+        }
+        fetchLayers()
     }, [])
 
     async function handleAddToLayers(partId) {
+        console.log(partId)
         const layers = await emojisAPI.addPartToLayers(partId)
         setLayers(layers)
     }
 
-    // async function handleSave() {
-    //     await emojisAPI.saveEmoji()
-    //     history.push('/emojis')
-    // }
+    async function handleSave() {
+        await emojisAPI.saveEmoji()
+    }
 
     
     return (
@@ -62,7 +68,9 @@ export default function CreatePage(user, setUser) {
 				<PartsList parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
 				<Preview layers={layers}/>
 				<LayerList layers={layers}/>
-				<ActionButtons />
+                <input type="text" value={name} onChange={e => setName(e.target.value)} />
+                <input type="checkbox" value={shared} onChange={e => setShared(e.target.value)} />
+				<ActionButtons name={name} setName={setName}  handleSave={handleSave} />
 		</main>
 	);
 }
