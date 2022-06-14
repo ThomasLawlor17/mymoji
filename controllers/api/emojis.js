@@ -2,6 +2,7 @@ const Emoji = require('../../models/Emoji')
 const Part = require('../../models/Part')
 
 module.exports = {
+    index,
     new: newEmoji,
     addLayer,
     create,
@@ -9,6 +10,18 @@ module.exports = {
     update,
     delete: deleteEmoji,
 }
+
+
+async function index(req, res) {
+    const emojis = await Emoji.find(req.user._id)
+    if (emojis) {
+        console.log(emojis)
+    } else {
+        console.log('no emojis')
+    }
+    res.json(emojis)
+}
+
 
 async function newEmoji(req, res) {
     const parts = await Part.find({})
@@ -18,6 +31,7 @@ async function newEmoji(req, res) {
         .populate('rect')
         .exec()
     parts.sort((a, b) => a.category.order - b.category.order)
+    console.log('Hello!: ', parts)
     res.json(parts)
 }
 

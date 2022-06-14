@@ -4,9 +4,11 @@ const Schema = mongoose.Schema
 const emojiSchema = new Schema({
     name: {
         type: String,
-        maxlength: 40
+        maxlength: 40,
+        default: 'Untitled'
     },
-    layers: { type: Schema.Types.ObjectId, ref: 'Part'},
+    layers: [{ type: Schema.Types.ObjectId, ref: 'Part'}],
+    emoji: [{type: Schema.Types.ObjectId, ref: 'Path'}],
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     shared: {
         type: Boolean,
