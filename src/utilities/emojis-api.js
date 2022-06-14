@@ -3,15 +3,19 @@ import { getToken } from "./users-service";
 const BASE_URL = '/api/emojis'
 
 
-export function getLayers() {
+
+
+export function getEmoji(emojiId) {
     return fetch(`${BASE_URL}/layers`, getOptionsGet()).then(res => res.json())
 }
 
 export function addPartToLayers(partId) {
-    const options = getOptionsPost()
-    return fetch(`${BASE_URL}/layers/part/${partId}`, options).then(res => res.json())
+    return fetch(`${BASE_URL}/layers/part/${partId}`, getOptionsPost()).then(res => res.json())
 }
 
+export function saveEmoji(emojiId) {
+    return fetch(`${BASE_URL}/emojis/${emojiId}/save`, getOptionsPost()).then(res => res.json())
+}
 
 
 

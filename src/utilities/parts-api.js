@@ -1,10 +1,11 @@
 import { getToken } from "./users-service";
 
-const BASE_URL = '/api/emojis'
+const BASE_URL = '/api/parts'
 
 export function getAll() {
     const options = getOptionsGet()
-    return fetch(`${BASE_URL}`, options).then(res => res.json())
+    console.log('OPTIONS: ', options)
+    return fetch(`/api/parts`, options).then(res => res.json())
 }
 
 export function getById(id) {
@@ -17,6 +18,7 @@ export function getById(id) {
 /*-- Helper Functions --*/
 
 function getOptionsGet() {
+    console.log(getToken())
     return {
         headers: {
             Authorization: `Bearer ${getToken()}`

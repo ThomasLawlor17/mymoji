@@ -3,16 +3,13 @@ import "./PartsList.css";
 
 // Components
 import PartsListItem from "../PartsListItem/PartsListItem";
-import CategoryList from "../CategoryList/CategoryList";
 
-export default function PartsList({parts, handleAddToLayers}) {
-    const part = parts.map(part =>
-        <PartsListItem key={part._id} part={part} handleAddToLayers={handleAddToLayers}
-        />
+export default function PartsList(props) {
+    return(
+        <div>
+            {props.parts.map(p => 
+                <PartsListItem key={p._id} {...p} handleAddToLayers={props.handleAddToLayers} />
+                )}
+        </div>
     )
-	return (
-		<div className="PartsList">
-            {part}
-		</div>
-	);
 }

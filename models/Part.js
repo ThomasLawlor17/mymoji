@@ -18,4 +18,9 @@ const partSchema = new Schema({
     timestamps: true
 })
 
+
+
+
+
+
 module.exports = mongoose.model('Part', partSchema)
