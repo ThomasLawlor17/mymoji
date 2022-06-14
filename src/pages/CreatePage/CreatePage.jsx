@@ -16,7 +16,7 @@ import ActionButtons from "../../components/ActionButtons/ActionButtons";
 import CategoryList from "../../components/CategoryList/CategoryList";
 import UserLogOut from "../../components/UserLogOut/UserLogOut";
 
-export default function CreatePage(user, setUser) {
+export default function CreatePage({user, setUser}) {
 	const [parts, setParts] = useState([])
     const [categories, setCategories] = useState([])
     const [activeCat, setActiveCat] = useState('')

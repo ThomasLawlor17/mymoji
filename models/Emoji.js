@@ -1,6 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const layersSchema = new Schema({
+    parts: [{type: Schema.Types.ObjectId, ref: 'Part'}]
+})
+
+
+
+
+
 const emojiSchema = new Schema({
     name: {
         type: String,
@@ -46,10 +54,11 @@ emojiSchema.statics.saveEmoji = async function () {
 
 
 emojiSchema.methods.addPartToLayers = async function (partId) {
+    const emoji = this
     const layers = this.layers
     const part = await mongoose.model('Part').findById(partId)
     layers.push(part._id)
-    return layers.save()
+    return emoji.save()
 }
 
 
