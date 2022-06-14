@@ -14,7 +14,7 @@ export function addPartToLayers(partId) {
 }
 
 export function saveEmoji(emojiId) {
-    return fetch(`${BASE_URL}/emojis/${emojiId}/save`, getOptionsPost()).then(res => res.json())
+    return fetch(`${BASE_URL}/save`, getOptionsPost()).then(res => res.json())
 }
 
 

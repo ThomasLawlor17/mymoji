@@ -36,7 +36,7 @@ async function addToLayers(req, res) {
 }
 
 async function saveEmoji(req, res) {
-    const emoji = await Emoji.getEmoji(req.params.id)
+    const emoji = await Emoji.getEmoji(req.user._id)
     emoji.saved = true
     await emoji.save()
     res.json(emoji)
