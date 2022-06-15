@@ -1,7 +1,7 @@
 .CreatePage-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 11fr 1fr;
+    grid-template-rows: 20vh 50vh 10vh;
 }
 
 .CategoryList {

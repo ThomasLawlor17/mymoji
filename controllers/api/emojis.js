@@ -7,7 +7,7 @@ module.exports = {
     layersIndex,
     addToLayers,
     saveEmoji,
-    edit,
+    removeLayer,
     update,
     delete: deleteEmoji,
 }
@@ -39,6 +39,16 @@ async function addToLayers(req, res) {
     const layers = await Emoji.find({user: req.user._id}).populate({path: 'layers', populate: {path: 'paths'}})
     res.json(layers)
 }
+
+async function removeLayer(req, res) {
+    const emoji = await Emoji.getEmoji(req.user._id)
+
+    await emoji.removeLayer(req.params.id)
+
+    const layers = await Emoji.find({user: req.user._id}).populate({path: 'layers', populate: {path: 'paths'}})
+    res.json(layers)
+}
+
 
 async function saveEmoji(req, res) {
     const emoji = await Emoji.getEmoji(req.user._id)

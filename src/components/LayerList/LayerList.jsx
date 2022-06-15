@@ -17,7 +17,7 @@ export default function LayerList(props) {
   return (
     <div className="LayerList">
       <div className="list">
-        {parts.map((p) => <LayerListItem key={p._id} {...p}  />)}
+        {parts.map((p) => <LayerListItem key={p._id} {...p} handleRemoveLayer={props.handleRemoveLayer} />)}
       </div>
     </div>
   )

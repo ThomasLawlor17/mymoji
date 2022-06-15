@@ -70,6 +70,17 @@ emojiSchema.methods.addPartToLayers = async function (partId) {
     return emoji.save()
 }
 
+emojiSchema.methods.removeLayer = async function (partId) {
+    const emoji = this
+    const layers = this.layers
+    console.log('PART: ', partId)
+    console.log(layers.indexOf(partId))
+    console.log(layers)
+    layers.splice(layers.indexOf(partId), 1)
+    console.log(layers)
+    return emoji.save()
+}
+
 
 
 

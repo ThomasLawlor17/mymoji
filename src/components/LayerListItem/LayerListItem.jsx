@@ -24,7 +24,7 @@ export default function LayerListItem(props) {
 						alt=""
 					/>
 				</button>
-				<button className="deleteLayer">
+				<button className="deleteLayer" onClick={() => props.handleRemoveLayer(props._id)}>
 					<img
 						src="https://www.custoji.app/images/ui/ui__icon-trash.svg"
 						alt=""

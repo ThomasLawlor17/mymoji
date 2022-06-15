@@ -13,6 +13,10 @@ export function addPartToLayers(partId) {
     return fetch(`${BASE_URL}/layers/part/${partId}`, getOptionsPost()).then(res => res.json())
 }
 
+export function removeLayer(partId) {
+    return fetch(`${BASE_URL}/layers/${partId}/remove`, getOptionsDelete()).then(res => res.json())
+}
+
 export function saveEmoji(emojiId) {
     return fetch(`${BASE_URL}/save`, getOptionsPost()).then(res => res.json())
 }
@@ -36,6 +40,16 @@ function getOptionsGet() {
 function getOptionsPost() {
     return {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`
+        }
+    }
+}
+
+function getOptionsDelete() {
+    return {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${getToken()}`

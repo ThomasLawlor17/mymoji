@@ -12,6 +12,8 @@ router.get('/user', emojisCtrl.profileIndex)
 
 // POST /api/eomijs/layers/part/:id
 router.post('/layers/part/:id', emojisCtrl.addToLayers)
+// DELETE /api/emojis/layers/part/:id/remove
+router.delete('/layers/:id/remove', emojisCtrl.removeLayer)
 
 // POST /api/emojis/save
 router.post('/save', emojisCtrl.saveEmoji)

@@ -53,6 +53,12 @@ export default function CreatePage({user, setUser}) {
         setLayers(layers)
     }
 
+    async function handleRemoveLayer(partId) {
+        const emoji = await emojisAPI.removeLayer(partId)
+        console.log(emoji)
+        setLayers(emoji)
+    }
+
     async function handleSave() {
         await emojisAPI.saveEmoji()
     }
@@ -69,7 +75,7 @@ export default function CreatePage({user, setUser}) {
                 <CategoryList categories={categories} activeCat={activeCat} setActiveCat={setActiveCat} />
 				<PartsList id='PartsList' parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
 				<Preview emoji={layers}/>
-				<LayerList emoji={layers}/>
+				<LayerList emoji={layers} handleRemoveLayer={handleRemoveLayer} />
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
                 <input type="checkbox" value={shared} onChange={e => setShared(e.target.value)} />
 				<ActionButtons name={name} setName={setName}  handleSave={handleSave} />
