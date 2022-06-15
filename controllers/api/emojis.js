@@ -2,7 +2,7 @@ const Emoji = require('../../models/Emoji')
 const Part = require('../../models/Part')
 
 module.exports = {
-    index,
+    profileIndex,
     layers,
     layersIndex,
     addToLayers,
@@ -13,8 +13,8 @@ module.exports = {
 }
 
 
-async function index(req, res) {
-    const emojis = await Emoji.find(req.user._id)
+async function profileIndex(req, res) {
+    const emojis = await Emoji.find({user: req.user._id}).populate('layers')
     res.json(emojis)
 }
 
@@ -25,7 +25,8 @@ async function layers(req, res) {
 }
 
 async function layersIndex(req, res) {
-    const emoji = await Emoji.find(req.params._id).populate('layers')
+    const emoji = await Emoji.find({user: req.user._id}).populate({ path: 'layers', populate: {path:'paths'}})
+    console.log(emoji)
     res.json(emoji)
 }
 

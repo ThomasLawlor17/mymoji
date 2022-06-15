@@ -29,6 +29,7 @@ export default function CreatePage({user, setUser}) {
     useEffect(() => {
         async function fetchParts() {
             const parts = await fetch('/api/parts').then(res => res.json())
+
             setParts(parts)
 
             setCategories(parts.reduce((cats, part) => {
@@ -40,8 +41,8 @@ export default function CreatePage({user, setUser}) {
         fetchParts()
         async function fetchLayers() {
             const layers = await emojisAPI.getEmoji()
+            console.log('STUFF: ', layers[0].layers)
             setLayers(layers)
-            console.log(layers)
         }
         fetchLayers()
     }, [])
@@ -64,13 +65,15 @@ export default function CreatePage({user, setUser}) {
                 <Link to='/emojis'>My-Emojis</Link>
                 <UserLogOut user={user} setUser={setUser} />
             </nav>
+            <div className="CreatePage-grid">
                 <CategoryList categories={categories} activeCat={activeCat} setActiveCat={setActiveCat} />
-				<PartsList parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
+				<PartsList id='PartsList' parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
 				<Preview layers={layers}/>
 				<LayerList layers={layers}/>
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
                 <input type="checkbox" value={shared} onChange={e => setShared(e.target.value)} />
 				<ActionButtons name={name} setName={setName}  handleSave={handleSave} />
+            </div>
 		</main>
 	);
 }

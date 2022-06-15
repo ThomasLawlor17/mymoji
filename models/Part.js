@@ -14,6 +14,7 @@ const partSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'Rect'
     }],
     category: {type: Schema.Types.ObjectId, ref: 'Category'},
+    imgsrc: String,
 }, {
     timestamps: true
 })

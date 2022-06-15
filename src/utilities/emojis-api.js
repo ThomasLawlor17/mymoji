@@ -17,7 +17,9 @@ export function saveEmoji(emojiId) {
     return fetch(`${BASE_URL}/save`, getOptionsPost()).then(res => res.json())
 }
 
-
+export function getProfileEmojis() {
+    return fetch(`${BASE_URL}/user`, getOptionsGet()).then(res => res.json())
+}
 
 
 

@@ -34,6 +34,15 @@ const emojiSchema = new Schema({
     timestamps: true,
 })
 
+
+emojiSchema.virtual('totalDownloads').get(function () {
+    return this.downloads
+})
+
+
+
+
+
 emojiSchema.statics.getEmoji = async function (userId) {
     return this.findOneAndUpdate(
         {user: userId, saved: false},
@@ -57,7 +66,7 @@ emojiSchema.methods.addPartToLayers = async function (partId) {
     const emoji = this
     const layers = this.layers
     const part = await mongoose.model('Part').findById(partId)
-    layers.push(part._id)
+    layers.push({part})
     return emoji.save()
 }
 
