@@ -4,7 +4,6 @@ import "./CategoryList.css";
 // Components
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
-	console.log(activeCat)
 	const cats = categories.map((cat) => 
 		<li
 			key={cat}

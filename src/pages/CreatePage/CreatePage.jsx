@@ -27,10 +27,11 @@ export default function CreatePage({user, setUser}) {
 
 
     useEffect(() => {
+        // Load parts into state
         async function fetchParts() {
-            const parts = await fetch('/api/parts').then(res => res.json())
+            const parts = await partsAPI.getParts()
             setParts(parts)
-
+            // Extract categories from the parts to order
             setCategories(parts.reduce((cats, part) => {
                 const cat = part.category.name
                 return cats.includes(cat) ? cats : [...cats, cat]
@@ -38,18 +39,23 @@ export default function CreatePage({user, setUser}) {
             setActiveCat(parts[52].category.name)
         }
         fetchParts()
+        // Load emoji into state
         async function fetchLayers() {
             const layers = await emojisAPI.getEmoji()
             setLayers(layers)
-            console.log(layers)
         }
         fetchLayers()
     }, [])
 
     async function handleAddToLayers(partId) {
-        console.log(partId)
         const layers = await emojisAPI.addPartToLayers(partId)
         setLayers(layers)
+    }
+
+    async function handleRemoveLayer(partId) {
+        const emoji = await emojisAPI.removeLayer(partId)
+        console.log(emoji)
+        setLayers(emoji)
     }
 
     async function handleSave() {
@@ -64,13 +70,15 @@ export default function CreatePage({user, setUser}) {
                 <Link to='/emojis'>My-Emojis</Link>
                 <UserLogOut user={user} setUser={setUser} />
             </nav>
+            <div className="CreatePage-grid">
                 <CategoryList categories={categories} activeCat={activeCat} setActiveCat={setActiveCat} />
-				<PartsList parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
-				<Preview layers={layers}/>
-				<LayerList layers={layers}/>
+				<PartsList id='PartsList' parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
+				<Preview emoji={layers}/>
+				<LayerList emoji={layers} handleRemoveLayer={handleRemoveLayer} />
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
                 <input type="checkbox" value={shared} onChange={e => setShared(e.target.value)} />
 				<ActionButtons name={name} setName={setName}  handleSave={handleSave} />
+            </div>
 		</main>
 	);
 }

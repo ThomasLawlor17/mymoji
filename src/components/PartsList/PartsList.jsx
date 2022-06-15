@@ -5,11 +5,17 @@ import "./PartsList.css";
 import PartsListItem from "../PartsListItem/PartsListItem";
 
 export default function PartsList(props) {
-    return(
-        <div>
-            {props.parts.map(p => 
-                <PartsListItem key={p._id} {...p} handleAddToLayers={props.handleAddToLayers} />
-                )}
-        </div>
-    )
+	return (
+		<div>
+			<div className="grid">
+				{props.parts.map((p) => (
+					<PartsListItem
+						key={p._id}
+						{...p}
+						handleAddToLayers={props.handleAddToLayers}
+					/>
+				))}
+			</div>
+		</div>
+	);
 }

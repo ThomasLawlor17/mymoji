@@ -6,7 +6,7 @@ export default function ActionButtons(props) {
 
   return (
     <div>
-      <button className='saveButton' onClick={props.handleSave}>SAVE EMOJI!</button>
+      <button className='saveButton' onClick={() => props.handleSave()}>SAVE EMOJI!</button>
     </div>
   )
 }
