@@ -66,7 +66,7 @@ emojiSchema.methods.addPartToLayers = async function (partId) {
     const emoji = this
     const layers = this.layers
     const part = await mongoose.model('Part').findById(partId)
-    layers.push({part})
+    layers.push(part._id)
     return emoji.save()
 }
 

@@ -31,8 +31,12 @@ async function layersIndex(req, res) {
 }
 
 async function addToLayers(req, res) {
-    const layers = await Emoji.getEmoji(req.user._id)
-    await layers.addPartToLayers(req.params.id)
+    // Get the emoji to be added to
+    const emoji = await Emoji.getEmoji(req.user._id)
+    // Call upon model method puhsing part id into layers
+    await emoji.addPartToLayers(req.params.id)
+    // re-populate layers and paths
+    const layers = await Emoji.find({user: req.user._id}).populate({path: 'layers', populate: {path: 'paths'}})
     res.json(layers)
 }
 

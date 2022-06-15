@@ -27,11 +27,11 @@ export default function CreatePage({user, setUser}) {
 
 
     useEffect(() => {
+        // Load parts into state
         async function fetchParts() {
-            const parts = await fetch('/api/parts').then(res => res.json())
-
+            const parts = await partsAPI.getParts()
             setParts(parts)
-
+            // Extract categories from the parts to order
             setCategories(parts.reduce((cats, part) => {
                 const cat = part.category.name
                 return cats.includes(cat) ? cats : [...cats, cat]
@@ -39,17 +39,17 @@ export default function CreatePage({user, setUser}) {
             setActiveCat(parts[52].category.name)
         }
         fetchParts()
+        // Load emoji into state
         async function fetchLayers() {
             const layers = await emojisAPI.getEmoji()
-            console.log('STUFF: ', layers[0].layers)
             setLayers(layers)
         }
         fetchLayers()
     }, [])
 
     async function handleAddToLayers(partId) {
-        console.log(partId)
         const layers = await emojisAPI.addPartToLayers(partId)
+        console.log(layers)
         setLayers(layers)
     }
 
@@ -68,8 +68,8 @@ export default function CreatePage({user, setUser}) {
             <div className="CreatePage-grid">
                 <CategoryList categories={categories} activeCat={activeCat} setActiveCat={setActiveCat} />
 				<PartsList id='PartsList' parts={parts.filter(part => part.category.name === activeCat)} handleAddToLayers={handleAddToLayers}/>
-				<Preview layers={layers}/>
-				<LayerList layers={layers}/>
+				<Preview emoji={layers}/>
+				<LayerList emoji={layers}/>
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
                 <input type="checkbox" value={shared} onChange={e => setShared(e.target.value)} />
 				<ActionButtons name={name} setName={setName}  handleSave={handleSave} />

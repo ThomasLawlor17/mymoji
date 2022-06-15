@@ -5,7 +5,7 @@ const BASE_URL = '/api/emojis'
 
 
 
-export function getEmoji(emojiId) {
+export function getEmoji() {
     return fetch(`${BASE_URL}/layers`, getOptionsGet()).then(res => res.json())
 }
 
