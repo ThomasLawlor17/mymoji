@@ -12,6 +12,7 @@ export default function LayerList(props) {
   //   })
   // })
 
+
   let parts = props.emoji.map(e => e.layers.map(l => l)).flat()
 
   return (

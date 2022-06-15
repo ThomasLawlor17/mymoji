@@ -1,13 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const layersSchema = new Schema({
-    parts: [{type: Schema.Types.ObjectId, ref: 'Part'}]
-})
-
-
-
-
 
 const emojiSchema = new Schema({
     name: {
@@ -73,11 +66,7 @@ emojiSchema.methods.addPartToLayers = async function (partId) {
 emojiSchema.methods.removeLayer = async function (partId) {
     const emoji = this
     const layers = this.layers
-    console.log('PART: ', partId)
-    console.log(layers.indexOf(partId))
-    console.log(layers)
     layers.splice(layers.indexOf(partId), 1)
-    console.log(layers)
     return emoji.save()
 }
 

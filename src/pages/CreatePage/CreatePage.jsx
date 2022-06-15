@@ -49,7 +49,6 @@ export default function CreatePage({user, setUser}) {
 
     async function handleAddToLayers(partId) {
         const layers = await emojisAPI.addPartToLayers(partId)
-        console.log(layers)
         setLayers(layers)
     }
 
