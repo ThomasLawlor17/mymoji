@@ -16,15 +16,15 @@ function downloadImg(blob, file) {
   setTimeout(() => URL.revokeObjectURL(objectUrl), 5000)
 }
 
-export default function Preview(props) {  
+export default function Preview(props) {
 
   const svgRef = useRef()
 
-  const downloadSVG = useCallback(() => {
+  const downloadSVG = () => {
     const svg = svgRef.current.innerHTML;
     const blob = new Blob([svg], {type: 'image/scg+xml'});
     downloadImg(blob, `${props.name}.svg`)
-  }, [])
+  }
 
   return (
     <div>
@@ -36,14 +36,15 @@ export default function Preview(props) {
       </div>
       </div>
       <div className="buttons-and-stuff">
-        <NameInput name={props.name} setName={props.setName} />
+        <input type="text" name='name' value={props.name} onChange={props.handleNameChange} />
+        {/* <NameInput name={props.name} setName={props.setName} /> */}
       {props.shared ? 
                           <div className='shared' onClick={() => props.handleShare()}><h2 className='share-title'>Shared:</h2><img src="https://www.svgrepo.com/show/273992/check.svg" alt="" /></div>
                           : 
                           <div className='shared' onClick={() => props.handleShare()}><h2 className='share-title'>Shared:</h2><img src="https://www.svgrepo.com/show/273966/close.svg" alt="" /></div>
                         }
       <button className='save-button' onClick={() => props.handleSave()}>Save</button>
-      <button className='download-button' onClick={() => downloadSVG()}>Download</button>
+      <button className='download-button' onClick={downloadSVG}>Download</button>
       </div>
     </div>
   )

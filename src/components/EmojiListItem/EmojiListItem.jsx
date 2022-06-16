@@ -19,7 +19,6 @@ function downloadImg(blob, file) {
 
 
 export default function EmojiListItem(props) {
-  console.log(props.emoji.name)
   
   const svgRef = useRef()
   

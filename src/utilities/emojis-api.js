@@ -18,8 +18,8 @@ export function removeLayer(partId) {
 	);
 }
 
-export function saveEmoji() {
-	return fetch(`${BASE_URL}/save`, getOptionsPost()).then((res) => res.json());
+export function saveEmoji(name) {
+	return sendRequest(`${BASE_URL}/save`, "PUT", name);
 }
 
 export function getProfileEmojis() {
@@ -91,7 +91,10 @@ async function sendRequest(url, method = "GET", payload = null) {
 	// used to include a data payload, set headers, etc.
 	const options = { method };
 	if (payload) {
-		options.headers = { "Content-Type": "application/json" };
+		options.headers = {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${getToken()}`,
+		};
 		options.body = JSON.stringify(payload);
 	}
 	const res = await fetch(url, options);

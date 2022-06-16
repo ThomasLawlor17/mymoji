@@ -57,8 +57,9 @@ export default function CreatePage({ user, setUser }) {
 		setLayers(emoji);
 	}
 
-	async function handleSave(name) {
-		await emojisAPI.saveEmoji(name);
+	async function handleSave() {
+		// const tempName = {name}
+		await emojisAPI.saveEmoji({name});
 		setLayers([]);
 	}
 
@@ -75,6 +76,10 @@ export default function CreatePage({ user, setUser }) {
 	async function handleLayerOrderDown(partId) {
 		let emoji = await emojisAPI.reorderLayerDown(partId)
 		setLayers(emoji)
+	}
+
+	async function handleNameChange(e) {
+		setName(e.target.value)
 	}
 
 
@@ -118,6 +123,7 @@ export default function CreatePage({ user, setUser }) {
 						shared={shared}
 						handleShare={handleShare}
 						handleSave={handleSave}
+						handleNameChange={handleNameChange}
 					/>
 				</div>
 				<div className="layers">
