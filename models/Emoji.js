@@ -58,15 +58,10 @@ emojiSchema.statics.saveEmoji = async function () {
 }
 
 emojiSchema.methods.addPartToLayers = async function (partId) {
-    console.log('1')
     const emoji = this
-    console.log('2')
     const layers = this.layers
-    console.log('3')
     const part = await mongoose.model('Part').findById(partId)
-    console.log('4')
     layers.push(part._id)
-    console.log('5')
     return emoji.save()
 }
 
@@ -87,6 +82,36 @@ emojiSchema.methods.newName = async function (name) {
     const emoji = this
     emoji.name = name
     emoji.save()
+}
+
+emojiSchema.methods.layerUp = async function (partId) {
+    const emoji = this
+    const layers = this.layers
+    console.log(layers, layers.length)
+    const index = emoji.layers.indexOf(partId)
+    console.log(index)
+    layers.splice(index + 2, 0, partId)
+    console.log('------------------------------')
+    console.log(layers, layers.length)
+    console.log('------------------------------')
+    layers.splice(index, 1)
+    console.log(layers, layers.length)
+    return emoji.save()
+}
+
+emojiSchema.methods.layerDown = async function (partId) {
+    const emoji = this
+    const layers = this.layers
+    console.log(layers, layers.length)
+    const index = emoji.layers.indexOf(partId)
+    console.log(index)
+    layers.splice(index - 1, 0, partId)
+    console.log('------------------------------')
+    console.log(layers, layers.length)
+    console.log('------------------------------')
+    layers.splice(index + 1, 1)
+    console.log(layers, layers.length)
+    return emoji.save()
 }
 
 

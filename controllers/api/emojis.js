@@ -11,6 +11,8 @@ module.exports = {
 	newEmoji,
 	shareEmoji,
 	changeName,
+    layerUp,
+    layerDown,
 };
 
 // Get all user created emojis
@@ -91,4 +93,26 @@ async function changeName(req, res) {
 		saved: false,
 	}).populate({ path: "layers", populate: { path: "paths" } });
 	res.json(layers);
+}
+
+async function layerUp(req, res) {
+    console.log(req.params)
+    const emoji = await Emoji.getEmoji(req.user._id)
+    await emoji.layerUp(req.params.id)
+    const layers = await Emoji.find({
+		user: req.user._id,
+		saved: false,
+	}).populate({ path: "layers", populate: { path: "paths" } });
+    res.json(layers)
+}
+
+async function layerDown(req, res) {
+    console.log(req.params)
+    const emoji = await Emoji.getEmoji(req.user._id)
+    await emoji.layerDown(req.params.id)
+    const layers = await Emoji.find({
+		user: req.user._id,
+		saved: false,
+	}).populate({ path: "layers", populate: { path: "paths" } });
+    res.json(layers)
 }

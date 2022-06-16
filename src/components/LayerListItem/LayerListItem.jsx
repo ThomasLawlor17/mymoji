@@ -1,9 +1,14 @@
-import React from "react";
+import {useRef} from "react";
+import { useDrag, useDrop } from 'react-dnd'
+
 
 // css
 import './LayerListItem.css'
 
 export default function LayerListItem(props) {
+	console.log(props.list)
+
+
 
 	return (
 		<div className="layerListItem">
@@ -22,12 +27,15 @@ export default function LayerListItem(props) {
 				</svg>
 				<div className="name">
 				</div>
-					<img
+					{/* <img
 					className="moveLayer"
 						src="https://www.custoji.app/images/ui/ui__icon-mover.svg"
 						alt=""
 						draggable='false'
-					/>
+					/> */}
+					<button onClick={() => props.handleLayerOrderUp(props._id)} className="up">UP</button>
+					<button onClick={() => props.handleLayerOrderDown(props._id)} className="down">DOWN</button>
+					
 				<button className="deleteLayer" onClick={() => props.handleRemoveLayer(props._id)}>
 					<img
 						src="https://www.custoji.app/images/ui/ui__icon-trash.svg"

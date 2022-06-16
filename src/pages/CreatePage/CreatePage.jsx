@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 // Utils
 import * as partsAPI from "../../utilities/parts-api";
@@ -68,6 +70,16 @@ export default function CreatePage({ user, setUser }) {
 		setShared(share);
 	}
 
+	async function handleLayerOrderUp(partId) {
+		let emoji = await emojisAPI.reorderLayerUp(partId)
+		setLayers(emoji)
+	}
+
+	async function handleLayerOrderDown(partId) {
+		let emoji = await emojisAPI.reorderLayerDown(partId)
+		setLayers(emoji)
+	}
+
 
 
 	return (
@@ -112,7 +124,9 @@ export default function CreatePage({ user, setUser }) {
 					/>
 				</div>
 				<div className="layers">
-					<LayerList emoji={layers} handleRemoveLayer={handleRemoveLayer} />
+					<DndProvider backend={HTML5Backend}>
+					<LayerList emoji={layers} handleRemoveLayer={handleRemoveLayer} handleLayerOrderUp={handleLayerOrderUp} handleLayerOrderDown={handleLayerOrderDown} />
+					</DndProvider>
 				</div>
 			</div>
 		</main>
