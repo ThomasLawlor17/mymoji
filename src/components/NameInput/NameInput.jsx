@@ -4,16 +4,12 @@ import { changeName } from '../../utilities/emojis-api'
 
 export default class NameInput extends Component {
 
-    state = {
-        name: this.props.name
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value,
-            error: ''
-        })
-    }
+    // handleChange = (e) => {
+    //     this.setState({
+    //         [e.target.name]: e.target.value,
+    //         error: ''
+    //     })
+    // }
 
     handleSubmit = async (e) => {
         e.preventDefault()
@@ -28,11 +24,11 @@ export default class NameInput extends Component {
 
 
   render() {
-      const disable = !this.state.name
+      const disable = !this.props.name
     return (
       <div>
-          <form autoComplete='off' onSubmit={this.handleSubmit}>
-              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder='Untitled'/>
+          <form autoComplete='off' onSubmit={this.props.handleSubmit}>
+              <input type="text" name="name" value={this.props.name} onChange={this.props.handleNameChange} placeholder='Untitled'/>
               <button type='submit' disabled={disable}>Change Name</button>
           </form>
       </div>

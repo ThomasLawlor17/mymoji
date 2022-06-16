@@ -65,8 +65,10 @@ async function removeLayer(req, res) {
 
 // Save emoji to db
 async function saveEmoji(req, res) {
+    console.log(req.user)
 	const emoji = await Emoji.getEmoji(req.user._id);
 	emoji.saved = true;
+    emoji.name = req.body.name
 	await emoji.save();
 	res.json(emoji);
 }
