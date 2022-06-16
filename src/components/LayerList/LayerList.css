@@ -1,0 +1,16 @@
+.list {
+    border: solid lightgray 4px;
+    border-radius: 15px;
+    width: 20vw;
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+}
+
+.LayerList {
+    color: lightgray;
+    text-align: center;
+}

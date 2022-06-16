@@ -1,7 +1,14 @@
 import React from 'react'
+import EmojiListItem from '../EmojiListItem/EmojiListItem'
 
-export default function EmojiList() {
+import './EmojiList.css'
+
+export default function EmojiList(props) {
   return (
-    <div>EmojiList</div>
+    <div>
+      <div className="emoji-grid">
+      {props.emojis.map(e => <EmojiListItem key={e._id} emoji={e} />)}
+      </div>
+    </div>
   )
 }

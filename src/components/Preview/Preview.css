@@ -1,0 +1,49 @@
+.image {
+    margin-bottom: 80px;
+    margin-top: 50px;
+}
+
+.buttons-and-stuff {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.name-input {
+    grid-row: 1;
+    grid-column: 1 / 4;
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+.shared {
+    grid-row: 2;
+    grid-column: 2 / 3;
+    width: 20vw;
+    display: flex;
+}
+.share-title {
+    color: lightgray;
+    margin-right: 7px;
+}
+
+.save-button {
+    grid-row: 3;
+    grid-column-start: 1;
+    width: 200px;
+    border: solid lightgray 3px;
+    border-radius: 15px;
+    background-color: darkgray;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.download-button {
+    grid-row: 3;
+    grid-column-end: 4;
+    width: 200px;
+    border: solid lightgray 3px;
+    border-radius: 15px;
+    background-color: darkgray;
+    font-size: 20px;
+    margin-top: 5px;
+}

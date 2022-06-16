@@ -1,5 +1,9 @@
 import { useDrag, useDrop } from 'react-dnd'
 
+
+// css
+import './LayerList.css'
+
 // Components
 import LayerListItem from "../LayerListItem/LayerListItem"
 
@@ -17,6 +21,7 @@ export default function LayerList(props) {
 
   return (
     <div className="LayerList">
+      <h1>Layers</h1>
       <div className="list">
         {parts.map((p) => <LayerListItem key={p._id} {...p} handleRemoveLayer={props.handleRemoveLayer} />)}
       </div>

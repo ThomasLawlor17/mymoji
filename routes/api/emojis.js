@@ -19,5 +19,7 @@ router.delete('/layers/:id/remove', emojisCtrl.removeLayer)
 router.post('/save', emojisCtrl.saveEmoji)
 // GET /api/emojis/layers
 router.get('/layers', emojisCtrl.layersIndex)
+// PUT /api/emojis/share
+router.put('/share', emojisCtrl.shareEmoji)
 
 module.exports = router

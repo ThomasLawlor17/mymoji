@@ -1,39 +1,48 @@
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import * as emojisAPI from '../../utilities/emojis-api'
+import "./ProfilePage.css";
 
+import * as emojisAPI from "../../utilities/emojis-api";
 
+import Logo from "../../components/Logo/Logo";
+import EmojiList from "../../components/EmojiList/EmojiList";
+import ProfileStats from "../../components/ProfileStats/ProfileStats";
+import UserLogOut from "../../components/UserLogOut/UserLogOut";
 
-import EmojiList from "../../components/EmojiList/EmojiList"
-import ProfileStats from "../../components/ProfileStats/ProfileStats"
-import UserLogOut from '../../components/UserLogOut/UserLogOut'
+export default function ProfilePage({ user, setUser }) {
+	const [emojis, setEmojis] = useState([]);
 
-export default function ProfilePage({user, setUser}) {
+	useEffect(() => {
+		async function fetchProfileEmojis() {
+			const emojis = await emojisAPI.getProfileEmojis();
+			setEmojis(emojis);
+		}
+		fetchProfileEmojis();
+	}, []);
 
-  const [emojis, setEmojis] = useState([])
-
-  useEffect(() => {
-    async function fetchProfileEmojis() {
-      const emojis = await emojisAPI.getProfileEmojis()
-      console.log(emojis)
-      setEmojis(emojis)
-    }
-    fetchProfileEmojis()
-  }, [])
-
-
-  return (
-    <div>
-      <nav>
-        <Link to='/emojis/new'>Make New Emoji</Link>
-        <Link to='/community'>Community</Link>
-        <UserLogOut user={user} setUser={setUser} />
-      </nav>
-      <div>
-        <EmojiList emojis={emojis} setEmojis={setEmojis} />
-        <ProfileStats emojis={emojis} />
-      </div>
-    </div>
-  )
+	return (
+		<div>
+			<nav>
+				<ul>
+					<div className="logo">
+						<Logo className="logo" />
+					</div>
+					<div className="links">
+						<Link className="Link" to="/community">
+							<div>COMMUNITY</div>
+						</Link>
+						<Link className="Link" to="/emojis/new">
+							MAKE NEW EMOJI
+						</Link>
+						<UserLogOut className="UserLogOut" user={user} setUser={setUser} />
+					</div>
+				</ul>
+			</nav>
+			<div className="container">
+				<EmojiList emojis={emojis} setEmojis={setEmojis} />
+				<ProfileStats emojis={emojis} />
+			</div>
+		</div>
+	);
 }

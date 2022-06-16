@@ -1,0 +1,30 @@
+nav {
+    height: 10vh;
+    width: 100vw;
+    background-color: var(--background);
+
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.links {
+    margin-top: 0px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.Link,
+.UserLogOut {
+    margin: 10px;
+    text-decoration: none;
+    color: lightgray;
+    font-size: 20px;
+}
+
+.Link:hover {
+    font-weight: 700;
+}

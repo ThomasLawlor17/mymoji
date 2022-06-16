@@ -678,6 +678,9 @@ async function seed() {
 		{d: "M30 12C30 13.104 29.0731 14 27.931 14H2.06897C0.926897 14 0 13.104 0 12V11C0 9.896 0.926897 9 2.06897 9H27.931C29.0731 9 30 9.896 30 11V12Z", fill: "#F1F2F2"},
 		// 463 topper_29
 		{d: "M36 19.5926C36 16.6094 32.5605 18.538 31.5 19.5926C30 21.0841 27 24.0673 24 22.5757C19.758 20.4666 18 21.0841 18 21.0841C18 21.0841 16.2435 20.4666 12 22.5757C9 24.0673 6 21.0841 4.5 19.5926C3.4395 18.538 0 16.6094 0 19.5926C0 22.5757 1.5 22.5757 1.5 22.5757C0 25.5589 3 27.0505 3 27.0505C3 31.5252 7.5 31.5252 7.5 31.5252C7.5 36 13.5 34.5084 13.5 34.5084C15 36 18 36 18 36C18 36 21 36 22.5 34.5084C22.5 34.5084 28.5 36 28.5 31.5252C28.5 31.5252 33 31.5252 33 27.0505C33 27.0505 36 25.5589 34.5 22.5757C34.5 22.5757 36 22.5757 36 19.5926Z", fill: "#E6E7E8"},
+
+		// My fuckup 464
+		{d:"M32 0C33 0 34 1 34 3V19C34 19 27 21 27 11C27 5 30 0 32 0Z", fill:"#99AAB5"}
 	])
 
 
@@ -799,7 +802,7 @@ async function seed() {
 		{name: 'head_31', paths: [paths[183].id, paths[184].id, paths[185].id, paths[186].id, paths[187].id, paths[188].id, paths[189].id, paths[190].id, paths[191].id, paths[192].id, paths[193].id], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_31.svg'},
 		{name: 'head_32', paths: [paths[194].id, paths[195].id, paths[196].id], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_32.svg'},
 		{name: 'head_33', paths: [paths[197].id, paths[198].id, paths[199].id, paths[200].id, paths[201].id, paths[202].id, paths[203].id, paths[204].id, paths[205].id, paths[206].id], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_33.svg'},
-		{name: 'head_34', paths: [paths[207].id, paths[208].id, paths[209].id, paths[210].id, paths[211].id, paths[212].id, paths[213].id, paths[214].id, paths[215].id, paths[216].id, paths[217].id, paths[218].id, paths[219].id, paths[220].id, paths[221].id, paths[222].id], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_34.svg'},
+		{name: 'head_34', paths: [paths[207].id, paths[208].id, paths[209].id, paths[210].id, paths[211].id, paths[212].id, paths[213].id, paths[214].id, paths[215].id, paths[216].id, paths[217].id, paths[218].id, paths[219].id, paths[220].id, paths[221].id, paths[222].id, paths[464].id], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_34.svg'},
 		{name: 'head_35', paths: [paths[223].id, paths[224].id, paths[225].id, paths[226].id, paths[227].id, paths[228].id, paths[229].id, paths[230].id, paths[231].id, paths[232].id, paths[233].id], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_35.svg'},
 		{name: 'head_36', paths: [paths[234].id, paths[235].id, paths[236].id, paths[237].id, paths[238].id, paths[239].id], clipPath: true, rect: [rects[8]], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_36.svg'},
 		{name: 'head_37', paths: [paths[240].id, paths[241].id, paths[242].id, paths[243].id, paths[244].id, paths[245].id], clipPath: true, rect: [rects[9]], category: categories[0], imgsrc:'https://www.custoji.app/images/parts/head_37.svg'},

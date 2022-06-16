@@ -25,6 +25,12 @@ export function getProfileEmojis() {
     return fetch(`${BASE_URL}/user`, getOptionsGet()).then(res => res.json())
 }
 
+export function shareEmoji() {
+    return fetch(`${BASE_URL}/share`, getOptionsPut()).then(res => res.json())
+}
+
+
+
 
 
 /*-- Helper Functions --*/
@@ -40,6 +46,16 @@ function getOptionsGet() {
 function getOptionsPost() {
     return {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`
+        }
+    }
+}
+
+function getOptionsPut() {
+    return {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${getToken()}`
