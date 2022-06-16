@@ -1,7 +1,6 @@
 import { useCallback, useRef, ReactDOM } from 'react'
 import './Preview.css'
 
-import NameInput from '../NameInput/NameInput'
 
 function downloadImg(blob, file) {
   const objectUrl = URL.createObjectURL(blob)
@@ -37,7 +36,6 @@ export default function Preview(props) {
       </div>
       <div className="buttons-and-stuff">
         <input type="text" name='name' value={props.name} onChange={props.handleNameChange} />
-        {/* <NameInput name={props.name} setName={props.setName} /> */}
       {props.shared ? 
                           <div className='shared' onClick={() => props.handleShare()}><h2 className='share-title'>Shared:</h2><img src="https://www.svgrepo.com/show/273992/check.svg" alt="" /></div>
                           : 

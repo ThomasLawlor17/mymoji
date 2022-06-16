@@ -29,13 +29,6 @@ const emojiSchema = new Schema({
 })
 
 
-emojiSchema.virtual('totalDownloads').get(function () {
-    return this.downloads
-})
-
-
-
-
 
 emojiSchema.statics.getEmoji = async function (userId) {
     return this.findOneAndUpdate(

@@ -36,6 +36,7 @@
     padding: 0;
     text-align: center;
     align-items: center;
+    max-width: 150px;
 }
 .shared-images {
     display: flex;
@@ -54,4 +55,6 @@
 
 .emoji-name {
     text-align: start;
+    max-width: 140px;
+    overflow-x: hidden;
 }

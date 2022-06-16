@@ -31,11 +31,12 @@ export default function LayerListItem(props) {
 						alt=""
 						draggable='false'
 					/> */}
-					<button onClick={() => props.handleLayerOrderUp(props._id)} className="up">UP</button>
-					<button onClick={() => props.handleLayerOrderDown(props._id)} className="down">DOWN</button>
+					<button onClick={() => props.handleLayerOrderUp(props._id)} className="up"><img className="arrow" src="https://www.svgrepo.com/show/378985/chevron-up.svg" alt="" /></button>
+					<button onClick={() => props.handleLayerOrderDown(props._id)} className="down"><img className="arrow" src="https://www.svgrepo.com/show/378975/chevron-down.svg" alt="" /></button>
 					
 				<button className="deleteLayer" onClick={() => props.handleRemoveLayer(props._id)}>
 					<img
+					className="trash"
 						src="https://www.custoji.app/images/ui/ui__icon-trash.svg"
 						alt=""
 					/>

@@ -21,6 +21,9 @@ export default function ProfilePage({ user, setUser }) {
 		fetchProfileEmojis();
 	}, []);
 
+	const username = user.username
+
+
 	return (
 		<div>
 			<nav>
@@ -41,7 +44,7 @@ export default function ProfilePage({ user, setUser }) {
 			</nav>
 			<div className="container">
 				<EmojiList emojis={emojis} setEmojis={setEmojis} />
-				<ProfileStats emojis={emojis} />
+				<ProfileStats emojis={emojis} username={username}/>
 			</div>
 		</div>
 	);
