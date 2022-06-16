@@ -34,6 +34,14 @@ export function changeName(name) {
     return sendRequest(`${BASE_URL}/name`, 'PUT', name)
 }
 
+export function reorderLayerUp(partId) {
+    return fetch(`${BASE_URL}/layers/${partId}/order/up`, getOptionsPut()).then((res) => res.json())
+}
+
+export function reorderLayerDown(partId) {
+    return fetch(`${BASE_URL}/layers/${partId}/order/down`, getOptionsPut()).then((res) => res.json())
+}
+
 
 /*-- Helper Functions --*/
 

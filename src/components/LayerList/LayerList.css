@@ -4,6 +4,9 @@
     width: 20vw;
     height: 50vh;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
 }
 
 .list::-webkit-scrollbar {
