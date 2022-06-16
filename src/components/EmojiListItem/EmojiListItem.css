@@ -49,6 +49,7 @@
 }
 .download-img-btn:hover {
     border: solid black 3px;
+    background-color: var(--purplebg);
 }
 
 .emoji-name {

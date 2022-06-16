@@ -82,6 +82,12 @@ emojiSchema.methods.shareEmoji = async function () {
     return this.save()
 }
 
+emojiSchema.methods.newName = async function (name) {
+    console.log(name)
+    const emoji = this
+    emoji.name = name
+    emoji.save()
+}
 
 
 

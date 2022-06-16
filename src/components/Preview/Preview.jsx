@@ -1,7 +1,7 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef, ReactDOM } from 'react'
 import './Preview.css'
 
-
+import NameInput from '../NameInput/NameInput'
 
 function downloadImg(blob, file) {
   const objectUrl = URL.createObjectURL(blob)
@@ -16,9 +16,7 @@ function downloadImg(blob, file) {
   setTimeout(() => URL.revokeObjectURL(objectUrl), 5000)
 }
 
-export default function Preview(props) {
-  
-  
+export default function Preview(props) {  
 
   const svgRef = useRef()
 
@@ -38,7 +36,7 @@ export default function Preview(props) {
       </div>
       </div>
       <div className="buttons-and-stuff">
-      <input onChange={(e) => props.setName(e.target.value)} type="text" name="name" className='name-input' autoComplete='off'/>
+        <NameInput name={props.name} setName={props.setName} />
       {props.shared ? 
                           <div className='shared' onClick={() => props.handleShare()}><h2 className='share-title'>Shared:</h2><img src="https://www.svgrepo.com/show/273992/check.svg" alt="" /></div>
                           : 

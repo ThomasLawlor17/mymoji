@@ -17,6 +17,7 @@
     grid-column: 1 / 4;
     font-size: 20px;
     margin-bottom: 6px;
+    text-align: center;
 }
 .shared {
     grid-row: 2;
@@ -49,4 +50,11 @@
     background-color: darkgray;
     font-size: 20px;
     margin-top: 5px;
+}
+
+.save-button:hover,
+.download-button:hover {
+    border: solid black 3px;
+    font-size: 25px;
+    background-color: var(--purplebg);
 }
