@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
+
 const emojiSchema = new Schema({
     name: {
         type: String,
@@ -41,25 +42,31 @@ emojiSchema.statics.getEmoji = async function (userId) {
         {user: userId, saved: false},
         // update
         {user: userId},
-        // options
+        // options  
         {upsert: true, new: true}
     )
 }
 
-
-
-emojiSchema.statics.saveEmoji = async function () {
-    return this.create()
+emojiSchema.statics.checkEmoji = async function (userId) {
+    console.log(this.findOne({user: userId, saved: false}))
+    return this.findOne({user: userId, saved: false}).populate({ path: 'layers', populate: {path:'paths'}})
 }
 
 
-
+emojiSchema.statics.saveEmoji = async function () {
+    return await this.create()
+}
 
 emojiSchema.methods.addPartToLayers = async function (partId) {
+    console.log('1')
     const emoji = this
+    console.log('2')
     const layers = this.layers
+    console.log('3')
     const part = await mongoose.model('Part').findById(partId)
+    console.log('4')
     layers.push(part._id)
+    console.log('5')
     return emoji.save()
 }
 
@@ -70,7 +77,10 @@ emojiSchema.methods.removeLayer = async function (partId) {
     return emoji.save()
 }
 
-
+emojiSchema.methods.shareEmoji = async function () {
+    this.shared = !this.shared
+    return this.save()
+}
 
 
 

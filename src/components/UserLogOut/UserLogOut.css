@@ -2,8 +2,16 @@
   font-size: 1.5vmin;
   color: var(--text-light);
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
-.UserLogOut .username {
-  font-size: smaller;
+.logout {
+  color: lightgray;
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.logout:hover {
+  font-weight: 700;
 }

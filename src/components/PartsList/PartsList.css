@@ -1,8 +1,13 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
     overflow-y: scroll;
+    height: 50vh;
+    width: 100%;
+}
+
+.grid::-webkit-scrollbar {
+    display: none;
 }
 
 .CategoryList {
@@ -10,8 +15,3 @@
     grid-column: 1 / 2;
 }
 
-.PartsListItems {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-}

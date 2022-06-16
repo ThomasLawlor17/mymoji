@@ -29,33 +29,8 @@ nav {
     font-weight: 700;
 }
 
-.content {
+.container {
     display: flex;
     justify-content: space-between;
+    margin: 5%;
 }
-
-.parts {
-    margin: 3vh 5vw 5vh 8vw;
-}
-
-.emoji {
-    margin: 3vh 0 5vh 0;
-}
-
-.layers {
-    margin: 3vh 8vw 5vh 5vw;
-}
-
-.name-input {
-    background-color: var(--boxes);
-    color: var(--white);
-    border: var(--borders) 5px solid;
-    border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.name-input:focus {
-    outline: var(--white);
-}
-
-
-
