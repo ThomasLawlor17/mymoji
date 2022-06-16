@@ -8,7 +8,6 @@ module.exports = {
 	addToLayers,
 	saveEmoji,
 	removeLayer,
-	newEmoji,
 	shareEmoji,
 	changeName,
     layerUp,
@@ -35,10 +34,6 @@ async function layersIndex(req, res) {
 		{ path: "layers", populate: { path: "paths" } }
 	);
 	res.json(emoji);
-}
-
-async function newEmoji(req, res) {
-	console.log("hello");
 }
 
 // Find or create new emoji and add part to layers
@@ -96,7 +91,6 @@ async function changeName(req, res) {
 }
 
 async function layerUp(req, res) {
-    console.log(req.params)
     const emoji = await Emoji.getEmoji(req.user._id)
     await emoji.layerUp(req.params.id)
     const layers = await Emoji.find({
@@ -107,7 +101,6 @@ async function layerUp(req, res) {
 }
 
 async function layerDown(req, res) {
-    console.log(req.params)
     const emoji = await Emoji.getEmoji(req.user._id)
     await emoji.layerDown(req.params.id)
     const layers = await Emoji.find({
