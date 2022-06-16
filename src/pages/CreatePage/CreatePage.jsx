@@ -58,8 +58,8 @@ export default function CreatePage({ user, setUser }) {
 		setLayers(emoji);
 	}
 
-	async function handleSave() {
-		await emojisAPI.saveEmoji();
+	async function handleSave(name) {
+		await emojisAPI.saveEmoji(name);
 		setLayers([]);
 	}
 
@@ -67,6 +67,7 @@ export default function CreatePage({ user, setUser }) {
 		let share = await emojisAPI.shareEmoji();
 		setShared(share);
 	}
+
 
 
 	return (

@@ -21,5 +21,7 @@ router.post('/save', emojisCtrl.saveEmoji)
 router.get('/layers', emojisCtrl.layersIndex)
 // PUT /api/emojis/share
 router.put('/share', emojisCtrl.shareEmoji)
+// PUT /api/emojis/name
+router.put('/name', emojisCtrl.changeName)
 
 module.exports = router
