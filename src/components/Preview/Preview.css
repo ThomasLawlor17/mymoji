@@ -1,6 +1,9 @@
 .image {
-    margin-bottom: 80px;
-    margin-top: 50px;
+    margin: 50px auto 80px auto;
+}
+
+.img-box {
+    text-align: center;
 }
 
 .buttons-and-stuff {
