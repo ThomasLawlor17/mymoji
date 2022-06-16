@@ -21,6 +21,11 @@ body {
   background-color: var(--background);
 }
 
+body::-webkit-scrollbar {
+  background-color: var(--background);
+
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

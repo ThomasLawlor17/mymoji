@@ -1,14 +1,35 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-
 import './CommunityPage.css'
+
+import * as communityAPI from '../../utilities/community-api'
 
 
 import Logo from '../../components/Logo/Logo'
 import TopUsers from '../../components/TopUsers/TopUsers'
 import UserLogOut from '../../components/UserLogOut/UserLogOut'
 
-export default function CommunityPage(user, setUser) {
+export default function CommunityPage({user, setUser}) {
+
+	const [emojis, setEmojis] = useState([])
+	const [users, setUsers] = useState([])
+
+	useEffect(() => {
+		async function fetchEmojis() {
+			const shared = await communityAPI.getShared()
+			setEmojis(shared)
+		}
+		fetchEmojis()
+
+		async function fetchUsers() {
+			const users = await communityAPI.getUsers()
+			setUsers(users)
+		}
+		fetchUsers()
+	}, [])
+
+
   return (
     <div>
       			<nav>

@@ -1,12 +1,10 @@
 import {useRef} from "react";
-import { useDrag, useDrop } from 'react-dnd'
 
 
 // css
 import './LayerListItem.css'
 
 export default function LayerListItem(props) {
-	console.log(props.list)
 
 
 

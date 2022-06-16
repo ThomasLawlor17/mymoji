@@ -47,11 +47,6 @@ emojiSchema.statics.getEmoji = async function (userId) {
     )
 }
 
-emojiSchema.statics.checkEmoji = async function (userId) {
-    console.log(this.findOne({user: userId, saved: false}))
-    return this.findOne({user: userId, saved: false}).populate({ path: 'layers', populate: {path:'paths'}})
-}
-
 
 emojiSchema.statics.saveEmoji = async function () {
     return await this.create()
@@ -87,30 +82,18 @@ emojiSchema.methods.newName = async function (name) {
 emojiSchema.methods.layerUp = async function (partId) {
     const emoji = this
     const layers = this.layers
-    console.log(layers, layers.length)
     const index = emoji.layers.indexOf(partId)
-    console.log(index)
     layers.splice(index + 2, 0, partId)
-    console.log('------------------------------')
-    console.log(layers, layers.length)
-    console.log('------------------------------')
     layers.splice(index, 1)
-    console.log(layers, layers.length)
     return emoji.save()
 }
 
 emojiSchema.methods.layerDown = async function (partId) {
     const emoji = this
     const layers = this.layers
-    console.log(layers, layers.length)
     const index = emoji.layers.indexOf(partId)
-    console.log(index)
     layers.splice(index - 1, 0, partId)
-    console.log('------------------------------')
-    console.log(layers, layers.length)
-    console.log('------------------------------')
     layers.splice(index + 1, 1)
-    console.log(layers, layers.length)
     return emoji.save()
 }
 
