@@ -59,7 +59,7 @@ export default function CommunityEmojiListItem(props) {
       <div className="info">
         <ul className='info-list'>
           <li><h2 className='emoji-name'>{props.emoji.name}</h2></li>
-          <li><p>{props.emoji.user.username}</p></li>
+          {/* <li><p>{props.emoji.user.username}</p></li> */}
           <li>{props.emoji.downloads}</li>
           <li className='shared-images'>
             <div><img className='people' src="https://www.svgrepo.com/show/60828/team.svg" alt="" /></div>
