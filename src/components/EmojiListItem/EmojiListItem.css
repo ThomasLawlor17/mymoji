@@ -37,6 +37,7 @@
     text-align: center;
     align-items: center;
     max-width: 150px;
+    height: 28vh;
 }
 .shared-images {
     display: flex;
