@@ -27,5 +27,7 @@ router.put('/name', emojisCtrl.changeName)
 router.put('/layers/:id/order/up', emojisCtrl.layerUp)
 // PUT /api/emojis/layers/:id/order/down
 router.put('/layers/:id/order/down', emojisCtrl.layerDown)
+// PUT /api./emojis/:id/adddl
+router.put('/:id/adddl', emojisCtrl.addDL)
 
 module.exports = router

@@ -7,7 +7,7 @@ module.exports = {
 }
 
 async function indexShared(req, res) {
-    const shared = await Emoji.find({saved: true, shared: true}).populate({path: 'layers', populate: {path: 'paths'}})
+    const shared = await Emoji.find({saved: true, shared: true}).populate('user').populate({path: 'layers', populate: {path: 'paths'}})
     res.json(shared)
 }
 

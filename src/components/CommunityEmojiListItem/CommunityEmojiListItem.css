@@ -1,0 +1,60 @@
+shared {
+    width: 40px;
+}
+
+.people {
+    width: 40px;
+}
+
+.download-image {
+    width: 40px;
+}
+
+.emoji-button {
+    background-color: transparent;
+    border: none;
+}
+
+.emoji-button:hover {
+    border: black 3px inset;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+.box {
+    margin: 16px;
+}
+
+.info-list {
+    margin-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgrey;
+    border: solid lightgray 3px;
+    border-radius: 15px;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    max-width: 150px;
+}
+.shared-images {
+    display: flex;
+    margin-bottom: 0;
+}
+
+.download-img-btn {
+    background-color: darkgray;
+    border: solid lightgrey 3px;
+    border-radius: 5px;
+}
+.download-img-btn:hover {
+    border: solid black 3px;
+    background-color: var(--purplebg);
+}
+
+.emoji-name {
+    text-align: start;
+    max-width: 140px;
+    overflow-x: hidden;
+}

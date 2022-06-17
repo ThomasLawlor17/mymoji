@@ -1,8 +1,10 @@
 import { useCallback, useRef } from 'react'
 
+import * as emojisAPI from '../../utilities/emojis-api'
+import * as usersAPI from '../../utilities/users-api'
 
 
-import './EmojiListItem.css'
+import './CommunityEmojiListItem.css'
 
 function downloadImg(blob, file) {
   const objectUrl = URL.createObjectURL(blob)
@@ -18,23 +20,26 @@ function downloadImg(blob, file) {
 }
 
 
-export default function EmojiListItem(props) {
+export default function CommunityEmojiListItem(props) {
   
   const svgRef = useRef()
   
-  const downloadSVG = () => {
+  const downloadSVG = async () => {
     let svgName = document.getElementsByClassName('preview-img')
     for (let i = 0; i < svgName.length; i++) {
       svgName[i].setAttribute("height", 36)
       svgName[i].setAttribute("width", 36)
     }
-    console.log(svgName)
     const svg = svgRef.current.innerHTML;
     const blob = new Blob([svg], {type: 'image/scg+xml'});
     downloadImg(blob, `${props.emoji.name}.svg`)
     for (let i = 0; i < svgName.length; i++) {
       svgName[i].setAttribute("height", '150px')
       svgName[i].setAttribute("width", '150px')
+    }
+    if (props.user._id !== props.emoji.user._id) {
+        await emojisAPI.addDL(props.emoji._id)
+        // await usersAPI.addDL(props.emoji.user._id, props.emoji.user.username)
     }
   }
   
@@ -54,6 +59,7 @@ export default function EmojiListItem(props) {
       <div className="info">
         <ul className='info-list'>
           <li><h2 className='emoji-name'>{props.emoji.name}</h2></li>
+          <li><p>{props.emoji.user.username}</p></li>
           <li>{props.emoji.downloads}</li>
           <li className='shared-images'>
             <div><img className='people' src="https://www.svgrepo.com/show/60828/team.svg" alt="" /></div>

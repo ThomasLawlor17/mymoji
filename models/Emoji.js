@@ -90,6 +90,12 @@ emojiSchema.methods.layerDown = async function (partId) {
     return emoji.save()
 }
 
+emojiSchema.methods.addDL = async function () {
+    const emoji = this
+    emoji.downloads += 1
+    return emoji.save()
+}
+
 
 
 

@@ -1,0 +1,28 @@
+
+.the-stuff {
+    border: solid 3px var(--yellowbg);
+    width: 13vw;
+    height: 20vh;
+    border-radius: 15px;
+    text-align: center;
+    background-color: darkgray;
+}
+
+.usrnm {
+    color: lightgray;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    width: 13vw;
+}
+
+.ps-title {
+    color: var(--purplebg);
+    font-size: 22px;
+}
+
+.p-list {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+}

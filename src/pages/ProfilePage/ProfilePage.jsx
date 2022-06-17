@@ -22,6 +22,13 @@ export default function ProfilePage({ user, setUser }) {
 	}, []);
 
 	const username = user.username
+	const downloads = user.downloads
+	const isoStr = user.createdAt
+	const date = new Date(isoStr)
+	const time = date.getTime()
+	const now = new Date().getTime()
+	const userTime = Math.ceil((now - time) / (1000 * 3600 * 24))
+	const date2 = new Date(isoStr).toLocaleDateString('ca')
 
 
 	return (
@@ -44,7 +51,7 @@ export default function ProfilePage({ user, setUser }) {
 			</nav>
 			<div className="container">
 				<EmojiList emojis={emojis} setEmojis={setEmojis} />
-				<ProfileStats emojis={emojis} username={username}/>
+				<ProfileStats emojis={emojis} username={username} downloads={downloads} time={userTime} date={date2}/>
 			</div>
 		</div>
 	);

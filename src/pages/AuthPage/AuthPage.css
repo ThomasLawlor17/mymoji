@@ -3,8 +3,9 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--white);
   border-radius: 2vmin;
+  margin-top: 40vh;
+  color: lightgray;
 }
 
 .AuthPage h3 {
@@ -12,4 +13,16 @@
   text-align: center;
   color: var(--text-light);
   cursor: pointer;
+}
+
+.fixed {
+  position: absolute;
+  left: 20vw;
+  top: 40vh;
+}
+
+.forms {
+  position: absolute;
+  right: 20vw;
+  top: 40vh;
 }

@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { signup } from '../../utilities/users-service';
 
+import './SignUpForm.css'
+
 export default class SignUpForm extends Component {
   state = {
     username: '',
@@ -35,14 +37,14 @@ export default class SignUpForm extends Component {
     return (
       <div>
         <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Username</label>
-            <input type="text" name="username" value={this.state.username} onChange={this.handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
+          <form className='suf' autoComplete="off" onSubmit={this.handleSubmit}>
+            <label className='sufe'>Username</label>
+            <input className='sufe sufi' type="text" name="username" value={this.state.username} onChange={this.handleChange} required />
+            <label className='sufe'>Password</label>
+            <input className='sufe sufi' type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+            <label className='sufe'>Confirm</label>
+            <input className='sufe sufi' type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+            <button className='sufe sufb' type="submit" disabled={disable}>SIGN UP</button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>

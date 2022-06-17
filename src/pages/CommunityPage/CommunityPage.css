@@ -28,3 +28,9 @@ nav {
 .Link:hover {
     font-weight: 700;
 }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}

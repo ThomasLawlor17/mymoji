@@ -12,6 +12,7 @@ module.exports = {
 	changeName,
     layerUp,
     layerDown,
+	addDL,
 };
 
 // Get all user created emojis
@@ -110,4 +111,13 @@ async function layerDown(req, res) {
 		saved: false,
 	}).populate({ path: "layers", populate: { path: "paths" } });
     res.json(layers)
+}
+
+async function addDL(req, res) {
+	console.log(req.body)
+	const emoji = await Emoji.findById(req.params.id)
+	await emoji.addDL(req.params._id)
+	const shared = await Emoji.find({saved: true, shared: true}).populate('user').populate({path: 'layers', populate: {path: 'paths'}})
+	console.log(emoji)
+	res.json(shared)
 }
