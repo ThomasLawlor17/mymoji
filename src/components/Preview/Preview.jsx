@@ -55,6 +55,7 @@ export default function Preview(props) {
 					value={props.name}
 					onChange={props.handleNameChange}
           className='name-input'
+          autoComplete="off"
 				/>
 				{props.shared ? (
 					<div className="shared" onClick={() => props.handleShare()}>
