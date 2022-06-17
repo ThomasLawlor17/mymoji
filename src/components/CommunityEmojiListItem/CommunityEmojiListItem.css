@@ -36,7 +36,9 @@ shared {
     padding: 0;
     text-align: center;
     align-items: center;
+    justify-content: space-between;
     max-width: 150px;
+    height: 20vh;
 }
 .shared-images {
     display: flex;
@@ -57,4 +59,5 @@ shared {
     text-align: center;
     max-width: 140px;
     overflow-x: hidden;
+    margin-bottom: 0px;
 }
