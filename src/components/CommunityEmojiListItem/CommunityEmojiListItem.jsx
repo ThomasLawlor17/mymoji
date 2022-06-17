@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react'
 
 import * as emojisAPI from '../../utilities/emojis-api'
-import * as usersAPI from '../../utilities/users-api'
+// import * as usersAPI from '../../utilities/users-api'
 
 
 import './CommunityEmojiListItem.css'
