@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
   signup,
-  login
+  login,
+  // addDL
 };
 
 async function signup(req, res) {
@@ -32,6 +33,12 @@ async function login(req, res) {
     res.status(400).json('Bad Credentials');
   }
 }
+
+// async function addDL(req, res) {
+//     const user = await User.findOneAndUpdate({id: req.params.id}, {$inc : {'downloads' : 1}}).exec()
+//     const users = User.find({})
+//     res.json(users)
+// }
 
 /*-- Helper Functions --*/
 

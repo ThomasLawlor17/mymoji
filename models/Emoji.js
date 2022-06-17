@@ -29,13 +29,6 @@ const emojiSchema = new Schema({
 })
 
 
-emojiSchema.virtual('totalDownloads').get(function () {
-    return this.downloads
-})
-
-
-
-
 
 emojiSchema.statics.getEmoji = async function (userId) {
     return this.findOneAndUpdate(
@@ -94,6 +87,12 @@ emojiSchema.methods.layerDown = async function (partId) {
     const index = emoji.layers.indexOf(partId)
     layers.splice(index - 1, 0, partId)
     layers.splice(index + 1, 1)
+    return emoji.save()
+}
+
+emojiSchema.methods.addDL = async function () {
+    const emoji = this
+    emoji.downloads += 1
     return emoji.save()
 }
 

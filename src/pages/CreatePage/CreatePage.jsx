@@ -58,9 +58,10 @@ export default function CreatePage({ user, setUser }) {
 	}
 
 	async function handleSave() {
-		// const tempName = {name}
 		await emojisAPI.saveEmoji({name});
 		setLayers([]);
+		setShared(false)
+		setName('Untitled')
 	}
 
 	async function handleShare() {

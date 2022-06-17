@@ -13,3 +13,13 @@
     margin-left: 15px;
     margin-right: auto;
 }
+
+.trash:hover {
+    width: 35px
+}
+
+.arrow:hover {
+    width: 20px;
+}
+
+

@@ -1,0 +1,31 @@
+.suf {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.sufe {
+    margin: 4px;
+}
+
+.sufb {
+    background-color: lightgray;
+    border: solid 3px darkgrey;
+    border-radius: 5pc;
+    margin-top: 20px;
+}
+
+.sufb:hover {
+    border: solid 3px lightgray;
+    background-color: var(--purplebg);
+}
+
+.error-message {
+    text-align: center;
+}
+
+.sufi {
+    height: 20px;
+    border: solid lightgray 3px;
+    border-radius: 5px;
+}

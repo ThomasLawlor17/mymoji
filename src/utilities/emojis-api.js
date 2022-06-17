@@ -46,6 +46,12 @@ export function reorderLayerDown(partId) {
 	);
 }
 
+export function addDL(emojiId) {
+	return fetch(`${BASE_URL}/${emojiId}/adddl`, getOptionsPut()).then((res) =>
+		res.json()
+	);
+}
+
 /*-- Helper Functions --*/
 
 function getOptionsGet() {

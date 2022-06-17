@@ -58,3 +58,7 @@
     font-size: 25px;
     background-color: var(--purplebg);
 }
+
+.none-image {
+    visibility: none;
+}

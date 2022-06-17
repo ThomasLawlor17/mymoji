@@ -16,7 +16,11 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  downloads: {
+    type: Number,
+    default: 0
+  },
 }, {
   timestamps: true,
   // Even though it's hashed - don't send password to clients
@@ -39,5 +43,14 @@ userSchema.pre('save', function(next) {
     return next();
   });
 });
+
+
+// userSchema.methods.addDL = async function () {
+//   const user = this
+//   console.log(user)
+//   user.downloads += 1
+//   console.log(user)
+//   return user.save()
+// }
 
 module.exports = mongoose.model('User', userSchema);

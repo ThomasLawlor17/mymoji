@@ -6,5 +6,7 @@ const usersCtrl = require('../../controllers/api/users')
 router.post('/signup', usersCtrl.signup);
 // POST /api/users/login
 router.post('/login', usersCtrl.login);
+// PUT /api/users/:id/adddl
+// router.put('/:id/adddl', usersCtrl.addDL)
 
 module.exports = router;
