@@ -41,9 +41,9 @@ export default class SignUpForm extends Component {
             <label className='sufe'>Username</label>
             <input className='sufe sufi' type="text" name="username" value={this.state.username} onChange={this.handleChange} required />
             <label className='sufe'>Password</label>
-            <input className='sufe sufi' type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+            <input className='sufe sufi' type="password" name="password" value={this.state.password} onChange={this.handleChange} required/>
             <label className='sufe'>Confirm</label>
-            <input className='sufe sufi' type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+            <input className='sufe sufi' type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required/>
             <button className='sufe sufb' type="submit" disabled={disable}>SIGN UP</button>
           </form>
         </div>

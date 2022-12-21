@@ -1,6 +1,170 @@
 .logo {
-    font-size: 60px;
+    font-size: 90px;
     color: darkgray;
-    margin-bottom: 0;
-    margin-top: 20px;
+    margin: 0;
+    width: fit-content;
+    margin: auto;
+    padding-bottom: 10px;
+    border-bottom: solid 3px lightgrey;
+    user-select: none;
+}
+
+@media (min-width: 701px) {
+.logo-subtitle {
+    position: absolute;
+    top: 2vh;
+    left: -1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-subtitle h5 {
+    color: lightgray;
+    transform: rotate(-90deg) translateX(-40%) translateY(400%);
+    transform-origin: left bottom;
+    padding-bottom: 5px;
+    border-bottom: 2px solid lightgray;
+}
+.logo-links {
+    display: flex;
+    flex-direction: column;
+}
+}
+.logo-subtitle a,
+.logo-subtitle a svg {
+    width: 25px;
+    height: 25px;
+}
+.github-icon {
+    stroke: lightgrey;
+    transition: all 0.3s ease-in-out;
+}
+.linkedin-icon, .email-icon, .portfolio-icon {
+    fill: lightgray;
+    transition: all 0.3s ease-in-out;
+}
+.logo-subtitle a {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+.logo-subtitle a:hover svg:not(.github-icon) {
+    fill: var(--yellowbg);
+}
+.logo-subtitle a:hover .github-icon {
+    stroke: var(--yellowbg);
+}
+
+@media (max-width: 700px) {
+    .tablet .Logo {
+        display: flex;
+        /* margin-bottom: 4rem; */
+    }
+    .logo {
+        font-size: 50px;
+        margin-left: 2vw;
+        margin-top: 2vh;
+    }
+    .logo-subtitle {
+        margin-top: 1.5rem;
+        align-self: center;
+        margin-right: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo-subtitle h5 {
+        color: lightgrey;
+        font-size: 18px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid lightgrey;
+    }
+    div.logo-links {
+        display: flex;
+        margin-top: 5px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .logo-subtitle {
+        margin-right: 25%;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo-subtitle {
+        scale: 0.7;
+        flex-direction: row;
+        margin: 0;
+        align-self: flex-start;
+    }
+    .logo-subtitle h5 {
+        border-bottom: none;
+        white-space: nowrap;
+        padding-right: 8px;
+        border-right: 1px solid lightgray;
+    }
+    .Logo {
+        flex-direction: column;
+    }
+    .logo-links a {
+        margin-right: 5px;
+    }
+    .logo-links a:first-of-type {
+        padding-left: 8px;
+        border-left: 1px solid lightgrey;
+    }
+}
+
+@media (max-width: 414px) {
+    .logo {
+        font-size: 50px;
+        margin: auto;
+        padding-bottom: 0;
+    }
+    .logo-subtitle {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        gap: 15px;
+        top: auto;
+        left: auto;
+        rotate: 0deg;
+    }
+    .logo-subtitle h5 {
+        margin: 5px 0 5px 0px;
+        transform: rotate(0deg);
+        border-bottom: none;
+        padding: 0;
+    }
+    .logo-links {
+        border-left: 2px solid white;
+        padding-left: 4vw;
+        display: flex;
+        gap: 5px;
+    }
+    .logo-subtitle .logo-links a {
+        width: 26px;
+        height: 26px;
+        border-bottom: none;
+        border-top: none;
+    }
+    .logo-subtitle a svg {
+        width: 20px;
+        height: 20px;
+        margin: 3px auto;
+        rotate: 0deg;
+    }
+    .github-icon {
+        stroke: white;
+    }
+    .linkedin-icon, .email-icon, .portfolio-icon {
+        fill: white;
+    }
 }

@@ -23,9 +23,65 @@
 .error-message {
     text-align: center;
 }
+label.sufe {
+	position: absolute;
+	transition: all 0.3s ease-in-out;
+}
+label.sufe:first-of-type {
+	top: 22px;
+}
+label.sufe:nth-of-type(2) {
+	top: 82px;
+}
+label.sufe:nth-of-type(3) {
+    top: 142px;
+}
+
+form.suf:has(.sufi:first-of-type:focus) label.sufe:first-of-type,
+form.suf:has(.sufi:nth-of-type(2):focus) label.sufe:nth-of-type(2),
+form.suf:has(.sufi:nth-of-type(3):focus) label.sufe:nth-of-type(3),
+form.suf:has(.sufi:first-of-type:not(:focus):valid) label.sufe:first-of-type,
+form.suf:has(.sufi:nth-of-type(2):not(:focus):valid) label.sufe:nth-of-type(2),
+form.suf:has(.sufi:nth-of-type(3):not(:focus):valid) label.sufe:nth-of-type(3) {
+	transform: translateY(-20px);
+}
 
 .sufi {
+	height: 20px;
+	border: none;
+	background-color: var(--background);
+	border-bottom: 2px solid lightgrey;
+	color: lightgray;
+	margin-top: 32px;
+}
+.sufi:focus {
+    border-bottom: 2px solid var(--yellowbg);
+	outline: 0;
+}
+.show-pass-icon {
+    width: 20px;
     height: 20px;
-    border: solid lightgray 3px;
-    border-radius: 5px;
+    position: absolute;
+    fill: white;
+    right: 0;
+    cursor: pointer;
+}
+.suf .show-pass-icon:first-of-type {
+    top: 84px;
+}
+.suf .show-pass-icon:last-of-type {
+    top: 142px;
+}
+
+@media (max-width: 900px) {
+    .suf {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 414px) {
+    .suf {
+        width: 80vw;
+        justify-content: center;
+    }
 }

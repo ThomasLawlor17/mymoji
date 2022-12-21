@@ -4,7 +4,7 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 2vmin;
-  margin-top: 40vh;
+  /* margin-top: 40vh; */
   color: lightgray;
 }
 
@@ -25,4 +25,166 @@
   position: absolute;
   right: 20vw;
   top: 40vh;
+}
+.thomas-links {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .App:has(.AuthPage) .logo-subtitle {
+    left: -20%;
+  }
+  div.form-stuff {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+  .forms {
+    right: 10vw;
+  }
+  .fixed {
+    left: 10vw;
+  }
+}
+
+
+
+
+@media (max-width: 900px) {
+  .App:has(.AuthPage) {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .fixed {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 5vh);
+    top: 0;
+    left: 0;
+    text-align: center;
+    align-items: center;
+    margin-top: 5vh;
+  }
+  .App:has(.AuthPage) .fixed .Logo {
+    margin: 0;
+  }
+  .forms {
+    position: relative;
+    right: auto;
+    top: auto;
+  }
+  .fixed .Logo .logo {
+    text-align: center;
+    margin: auto;
+  }
+  .App:has(.AuthPage) .fixed .Logo .logo-subtitle {
+    display: none;
+  }
+  .thomas-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px
+  }
+  div.thomas-links h5 {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+  }
+  div.a-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div.a-links a,
+  div.a-links a svg {
+    width: 25px;
+    height: 25px;
+  }
+  div.a-links a {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  div.a-links a:not(:first-of-type) {
+    border-left: 1px solid white;
+  }
+  div.a-links a:not(:last-of-type) {
+    border-right: 1px solid white;
+  }
+  div.form-stuff {
+    margin-top: 60vh;
+  }
+}
+
+
+
+@media (max-width: 414px) {
+  .forms {
+    right: auto;
+    top: auto;
+    /* bottom: 20vh; */
+    margin: auto;
+  }
+  .fixed {
+    margin: auto;
+    left: auto;
+    top: 10vh;
+  }
+  div.form-stuff {
+    text-align: center;
+    margin-top: 50vh;
+  }
+  .form-stuff h4 {
+    padding-top: 10vh;
+  }
+  .form-stuff h3 {
+    margin-top: 5vh;
+  }
+  .App:has(.AuthPage) .Logo .logo-subtitle {
+    display: none;
+  }
+  .thomas-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100vw;
+    margin-top: 5px
+  }
+  div.thomas-links h5 {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+  }
+  div.a-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div.a-links a,
+  div.a-links a svg {
+    width: 25px;
+    height: 25px;
+  }
+  div.a-links a {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  div.a-links a:not(:first-of-type) {
+    border-left: 1px solid white;
+  }
+  div.a-links a:not(:last-of-type) {
+    border-right: 1px solid white;
+  }
+  .App:has(.AuthPage) {
+    height: 100vh;
+  }
 }

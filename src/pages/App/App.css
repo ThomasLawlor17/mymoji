@@ -1,1 +1,10 @@
-
+.App::-webkit-scrollbar, .CreatePage::-webkit-scrollbar {
+    display: none;
+}
+.App {
+    min-width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+}

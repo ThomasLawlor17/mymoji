@@ -3,13 +3,13 @@ import "./CategoryList.css";
 
 // Components
 
-export default function CategoryList({ categories, activeCat, setActiveCat }) {
+export default function CategoryListTablet({ categories, activeCat, width, layersActive, handleMobileLayers, handleMobileHeads, handleMobileEyes, handleMobileMouths, handleMobileToppers }) {
 
 	const cats = categories.map((cat) => 
 		<button
 			key={cat}
 			id='cat-button'
-			onClick={() => setActiveCat(cat)}
+			onClick={cat === "Heads" ? handleMobileHeads : cat === "Eyes" ? handleMobileEyes : cat === "Mouths" ? handleMobileMouths : cat === "Toppers" ? handleMobileToppers : null}
 		>
 			{cat === "Heads" ? <svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -78,5 +78,57 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
 	: null}
 		</button>
 	);
-	return <ul className="CategoryList">{cats}</ul>;
+	return <ul className="CategoryListTablet">{cats}<button id="cat-button" onClick={handleMobileLayers}><svg
+    id="list"
+    data-name="Capa 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60.02 44.9"
+    className={layersActive ? "layers-icon active l-active" : "layers-icon"}
+>
+    <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        d="M16.82 3.63h40.2"
+    ></path>
+    <circle
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="6"
+        cx="3.93"
+        cy="3.93"
+        r=".93"
+    ></circle>
+    <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        d="M16.82 22.17h40.2"
+    ></path>
+    <circle
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="6"
+        cx="3.93"
+        cy="22.47"
+        r=".93"
+    ></circle>
+    <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        d="M16.82 40.67h40.2"
+    ></path>
+    <circle
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="6"
+        cx="3.93"
+        cy="40.97"
+        r=".93"
+    ></circle>
+</svg></button></ul>;
 }

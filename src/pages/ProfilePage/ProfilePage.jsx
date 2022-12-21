@@ -34,20 +34,16 @@ export default function ProfilePage({ user, setUser }) {
 	return (
 		<div>
 			<nav>
-				<ul>
-					<div className="logo">
-						<Logo className="logo" />
-					</div>
-					<div className="links">
-						<Link className="Link" to="/community">
-							<div>COMMUNITY</div>
-						</Link>
-						<Link className="Link" to="/emojis/new">
-							MAKE NEW EMOJI
-						</Link>
-						<UserLogOut className="UserLogOut" user={user} setUser={setUser} />
-					</div>
-				</ul>
+					<Logo className="logo" />
+					<UserLogOut className="UserLogOut" user={user} setUser={setUser} />
+				<div className="links">
+					<Link className="Link" to="/community">
+						<span>COMMUNITY</span>
+					</Link>
+					<Link className="Link" to="/emojis/new">
+						<span>MAKE NEW EMOJI</span>
+					</Link>
+				</div>
 			</nav>
 			<div className="container">
 				<EmojiList emojis={emojis} setEmojis={setEmojis} />

@@ -9,7 +9,7 @@ export default function LayerListItem(props) {
 
 
 	return (
-		<div className="layerListItem">
+		<div className="LayerListItem" id={props.newLayerTransition ? "animate-in" : "animate-out"}>
 			<div className="layer" draggable='true'>
 				<svg
 				className="layer-image"

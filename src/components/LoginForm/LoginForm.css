@@ -1,31 +1,72 @@
 .lif {
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
+	display: flex;
+	flex-direction: column;
+	width: 20vw;
 }
 
 .life {
-    margin: 4px;
+	margin: 4px;
 }
 
 .lifb {
-    background-color: lightgray;
-    border: solid 3px darkgrey;
-    border-radius: 5pc;
-    margin-top: 20px;
+	background-color: lightgray;
+	border: solid 3px darkgrey;
+	border-radius: 5pc;
+	margin-top: 20px;
 }
 
 .lifb:hover {
-    border: solid 3px lightgray;
-    background-color: var(--purplebg);
+	border: solid 3px lightgray;
+	background-color: var(--purplebg);
 }
 
 .error-message {
-    text-align: center;
+	text-align: center;
+}
+label.life {
+	position: absolute;
+	transition: all 0.3s ease-in-out;
+}
+label.life:first-of-type {
+	top: 22px;
+}
+label.life:nth-of-type(2) {
+	top: 82px;
+}
+form.lif:has(.lifi:first-of-type:focus) label.life:first-of-type,
+form.lif:has(.lifi:nth-of-type(2):focus) label.life:nth-of-type(2),
+form.lif:has(.lifi:first-of-type:not(:focus):valid) label.life:first-of-type,
+form.lif:has(.lifi:nth-of-type(2):not(:focus):valid) label.life:nth-of-type(2) {
+	transform: translateY(-20px);
 }
 
 .lifi {
-    height: 20px;
-    border: solid lightgray 3px;
-    border-radius: 5px;
+	height: 20px;
+	border: none;
+	background-color: var(--background);
+	border-bottom: 2px solid lightgrey;
+	color: lightgray;
+	margin-top: 32px;
+}
+.lifi:focus {
+	border-bottom: 2px solid var(--yellowbg);
+	outline: 0;
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+    .lif {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .lif {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 414px) {
+	.lif {
+		width: 80vw;
+	}
 }

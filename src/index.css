@@ -5,6 +5,8 @@
   --boxes: #191919;
   --purplebg: #A377FF;
   --yellowbg: #FFCC4C;
+  --bluebg: #ACE7FF;
+  --pinkbg: #FFC9DE;
 }
 
 
@@ -38,6 +40,11 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+ul, li, h1, h2, h3, h4, h5, h6, p, div, input {
+  margin: 0;
+  padding: 0;
 }
 
 

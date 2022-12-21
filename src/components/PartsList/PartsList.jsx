@@ -6,7 +6,7 @@ import PartsListItem from "../PartsListItem/PartsListItem";
 
 export default function PartsList(props) {
 	return (
-		<div>
+		<div className="PartsList">
 			<div className="grid">
 				{props.parts.map((p) => (
 					<PartsListItem

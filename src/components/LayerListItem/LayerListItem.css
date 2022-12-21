@@ -1,9 +1,21 @@
+#animate-in {
+    height: 0;
+    opacity: 0;
+    transition: all 0.4s ease-in;
+}
+#animate-out {
+    height: 70px;
+    opacity: 1;
+    animation-iteration-count: 1;
+    transition: all 0.4s ease-out;
+}
+
 .layer {
     display: flex;
     border: solid 4px lightgray;
     border-radius: 15px;
     margin: 7px;
-    height: 50px;
+    height: 80%;
     align-items: center;
     justify-content: flex-end;
     background-color: darkgray;
@@ -14,12 +26,18 @@
     margin-right: auto;
 }
 
-.trash:hover {
-    width: 35px
+.arrow, .trash {
+    transition: all 0.3s ease-in-out;
 }
 
-.arrow:hover {
-    width: 20px;
+
+.up, .down {
+    padding: 0;
+    margin: 0 5px;
+}
+
+.arrow:hover, .trash:hover {
+    scale: 1.4;
 }
 
 

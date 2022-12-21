@@ -9,10 +9,50 @@
     color: var(--white);
 }
 
+#cat-button svg {
+    fill: white;
+    transition: all 0.3s ease-in-out;
+}
 
-#cat-button:hover,
-.active {
-    border: solid var(--white) 3px;
-    border-radius: 15px;
-    
+#cat-button svg.active {
+    fill: var(--purplebg);
+    color: var(--purplebg);
+}
+
+#cat-button:hover svg:not(.active) {
+    fill: var(--yellowbg);
+    color: var(--yellowbg);
+}
+
+@media (min-width: 415px) and (max-width: 1000px) {
+    #cat-button {
+        width: 40px;
+        height: 40px;
+    }
+    .CategoryListTablet {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 415px) and (max-width: 700px) {
+    #cat-button {
+        width: 60px;
+        height: 60px;
+    }
+    .CategoryListTablet {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 414px) {
+    .m-icon {
+        transition: all 0.3s ease-in-out;
+    }
+    .active {
+        fill: var(--purplebg);
+        stroke: var(--purplebg);
+        color: var(--purplebg);
+    }
 }
