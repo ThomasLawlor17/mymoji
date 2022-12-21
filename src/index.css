@@ -24,8 +24,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  background-color: var(--background);
-
+  display: none;
 }
 
 code {

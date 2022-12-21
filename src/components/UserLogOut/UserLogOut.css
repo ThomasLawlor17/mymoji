@@ -12,6 +12,7 @@
     font-size: 1.5vmin;
     color: var(--text-light);
     text-align: center;
+    z-index: 9999;
   }
   
   .logout {

@@ -1,63 +1,43 @@
-shared {
-    width: 40px;
+.emoji-name {
+    color: lightgrey;
 }
 
-.people {
-    width: 40px;
-}
 
-.download-image {
-    width: 40px;
+.box div svg {
+    width: 100%;
+    height: 100px;
+    margin: auto;
 }
-
-.emoji-button {
-    background-color: transparent;
-    border: none;
-}
-
-.emoji-button:hover {
-    border: black 3px inset;
-    border-radius: 25%;
-    cursor: pointer;
-}
-
-.box {
-    margin: 16px;
-}
-
-.info-list {
-    margin-left: 0;
-    list-style: none;
+.info {
     display: flex;
-    flex-direction: column;
-    background-color: darkgrey;
-    border: solid lightgray 3px;
-    border-radius: 15px;
-    padding: 0;
-    text-align: center;
     align-items: center;
     justify-content: space-between;
-    max-width: 150px;
-    height: 20vh;
+    margin-top: 5px;
 }
-.shared-images {
-    display: flex;
-    margin-bottom: 0;
-}
-
-.download-img-btn {
-    background-color: darkgray;
-    border: solid lightgrey 3px;
-    border-radius: 5px;
-}
-.download-img-btn:hover {
-    border: solid black 3px;
-    background-color: var(--purplebg);
-}
-
-.emoji-name {
+.info .emoji-name {
     text-align: center;
-    max-width: 140px;
+    max-width: 135px;
     overflow-x: hidden;
-    margin-bottom: 0px;
+    white-space: nowrap;
+}
+.info .dl-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+@media (max-width: 900px) {
+    .box div svg {
+        width: 100%;
+        height: 100px;
+        margin: auto;
+    }
+    .info .emoji-name {
+        max-width: 135px;
+    }
+    .info .dl-icon {
+        width: 20px;
+        height: 20px;
+    }
 }

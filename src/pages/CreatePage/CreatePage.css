@@ -22,7 +22,7 @@ nav {
 	left: 0;
 	right: 0;
 	text-align: center;
-    z-index: 9999;
+    z-index: 99;
 }
 .layers h1 {
     color: lightgray;
@@ -220,12 +220,15 @@ nav.tablet, nav.mobile, .CategoryListTablet {
     }
     nav.tablet input:checked ~ .t-links a:first-child {
         transition-delay: 0.3s;
+        z-index: 9999;
     }
     nav.tablet input:checked ~ .t-links a:nth-child(2) {
         transition-delay: 0.5s;
+        z-index: 9999;
     }
     nav.tablet input:checked ~ .t-links .UserLogOut {
         transition-delay: 0.7s;
+        z-index: 9999;
     }
 
 	nav.tablet input {

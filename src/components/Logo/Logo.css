@@ -142,6 +142,7 @@
         transform: rotate(0deg);
         border-bottom: none;
         padding: 0;
+        border-right: none;
     }
     .logo-links {
         border-left: 2px solid white;
@@ -154,6 +155,7 @@
         height: 26px;
         border-bottom: none;
         border-top: none;
+        border-left: none;
     }
     .logo-subtitle a svg {
         width: 20px;

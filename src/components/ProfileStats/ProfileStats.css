@@ -1,28 +1,104 @@
-
-.the-stuff {
-    border: solid 3px var(--yellowbg);
-    width: 13vw;
-    height: 20vh;
-    border-radius: 15px;
-    text-align: center;
-    background-color: darkgray;
+.ProfileStats {
+	position: absolute;
+	top: 14vh;
+	right: 3vw;
+}
+.top {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	z-index: 999;
+	width: fit-content;
 }
 
-.usrnm {
-    color: lightgray;
+.top h2 {
+    color: lightgrey;
+    transition: all ease-in-out 0.4s;
+    user-select: none;
+}
+
+.top h2.open {
+    --bg-size: 400%;
+    --color-one: hsl(15 90% 55%);
+    --color-two: hsl(40 95% 55%);
+    background: linear-gradient(
+        90deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one)
+      )
+      0 0 / var(--bg-size) 100%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: move-bg 8s linear infinite;
+}
+
+.top svg.open path {
+    fill: var(--yellowbg);
+}
+@keyframes move-bg {
+    to{background-position: var(--bg-size) 0;}
+}
+
+.profile-open-icon {
+	width: 20px;
+	height: 20px;
+	fill: lightgrey;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.the-stuff {
+    position: absolute;
+    min-width: 200px;
+    right: 0;
+    padding: 10px;
+    height: auto;
+    transition: all 0.4s ease-in-out;
+    background-color: lightgray;
+    border-radius: 15px;
     text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    width: 13vw;
+    border: outset 3px var(--purplebg);
+}
+
+.closed {
+    right: -50vw;
 }
 
 .ps-title {
-    color: var(--purplebg);
-    font-size: 22px;
+    --bg-size: 400%;
+    --color-one: rgb(51, 37, 244);
+    --color-two: rgb(249, 31, 223);
+    background: linear-gradient(
+        90deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one)
+      )
+      0 0 / var(--bg-size) 100%;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: move-bg 8s linear infinite;
 }
-
 .p-list {
     list-style: none;
-    text-align: center;
-    padding-left: 0;
+}
+
+.p-list li {
+    margin-top: 5px;
+}
+
+@media (max-width: 900px) {
+    .ProfileStats {
+        top: 10vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .closed {
+        right: -80vw;
+    }
 }
