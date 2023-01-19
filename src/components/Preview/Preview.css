@@ -1,6 +1,5 @@
 .image {
 	margin: 50px auto 80px auto;
-	height: 50vh;
 }
 
 .img-box {
@@ -176,6 +175,12 @@
 	.img-box svg {
 		height: 100%;
 		width: 100%;
+	}
+}
+
+@media (min-width: 1001px) {
+	.image, .img-box, .preview-img{
+		max-height: 55vh;
 	}
 }
 
