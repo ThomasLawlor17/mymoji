@@ -28,12 +28,16 @@
 
 .arrow, .trash {
     transition: all 0.3s ease-in-out;
+    width: 32px;
+    height: 32px;
 }
 
 
 .up, .down {
     padding: 0;
     margin: 0 5px;
+    width: 32px;
+    height: 32px;
 }
 
 .arrow:hover, .trash:hover {

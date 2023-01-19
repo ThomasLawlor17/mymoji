@@ -25,7 +25,11 @@ export default function Preview(props) {
 		const blob = new Blob([svg], { type: "image/svg+xml" });
 		svgName.setAttribute("height", 400);
 		svgName.setAttribute("width", 400);
-		downloadImg(blob, `${props.name}.svg`);
+		if (props.name) {
+			downloadImg(blob, `${props.name}.svg`);
+		} else {
+			downloadImg(blob, 'mymoji.svg')
+		}
 	};
 
 	return (
